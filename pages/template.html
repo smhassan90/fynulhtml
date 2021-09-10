@@ -44,7 +44,7 @@
               </li>
               <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><span data-i18n="" class="menu-title">Master Upload</span></a>
                 <ul class="menu-content">
-                  <li><a href="chat.html" class="menu-item">Channel Master</a>
+                  <li><a id="channel_master" class="menu-item">Channel Master</a>
                   </li>
                   <li><a href="chat.html" class="menu-item">Department Master</a>
                   </li>
@@ -187,7 +187,8 @@
         </div>
       </nav>
 
-      <div class="main-panel">
+      <div id="admin_main_container" class="main-panel">
+        
 
       </div>
     </div>
@@ -365,5 +366,36 @@
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="../app-assets/js/dashboard-ecommerce.js"></script>
     <!-- END PAGE LEVEL JS-->
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
+            }
+        }
+    </script>
+
+    <script src="../assets/js/admin_main_page.js"></script>
   </body>
 </html>
