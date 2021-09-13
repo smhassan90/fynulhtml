@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/prism.min.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css/app.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/templatestyle.css">
+
   </head>
   <body data-col="2-columns" class=" 2-columns ">
     <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -39,14 +41,14 @@
         <div class="sidebar-content">
           <div class="nav-container">
             <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-              <li class="nav-item active"><a href="#"><i class="icon-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
+              <li class="nav-item"><a href="#" class="menu-item active"><i class="icon-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
 
               </li>
               <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><span data-i18n="" class="menu-title">Master Upload</span></a>
                 <ul class="menu-content">
-                  <li><a id="channel_master" class="menu-item">Channel Master</a>
+                  <li><a id="channel_master_menu" class="menu-item">Channel Master</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Department Master</a>
+                  <li><a id="department_master_menu" class="menu-item">Department Master</a>
                   </li>
                   <li><a href="chat.html" class="menu-item">Depot Master</a>
                   </li>
@@ -188,8 +190,55 @@
       </nav>
 
       <div id="admin_main_container" class="main-panel">
-        
-
+        <section id="channel_master" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Channel Master</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>Channel Name <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                  <p>Channel name is <code>required</code> </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- Input Validation end -->
+            </div>
+          </div>
+        </section>
+        <section id="department_master" class="main-content hide_block">
+          <div>
+            Content in tab 2
+          </div>
+        </section>
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->

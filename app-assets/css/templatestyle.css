@@ -1,0 +1,6 @@
+.main-content.hide_block{
+    display: none;
+}
+.main-content.active_block{
+    display: block;
+}
