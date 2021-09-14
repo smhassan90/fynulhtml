@@ -207,32 +207,62 @@
                           <form class="form-horizontal" novalidate="">
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
-                                <div class="form-group">
-                                  <h5>Channel Name <span class="required">*</span></h5>
+                                  <div class="form-group">
+                                  <h5>ID <span class="required">*</span></h5>
                                   <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <input id="inpChannelID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
                                     <div class="help-block"></div></div>
-                                  <p>Channel name is <code>required</code> </p>
                                 </div>
+                                  <div class="form-group">
+                                      <h5>Channel Name <span class="required">*</span></h5>
+                                      <div class="controls">
+                                          <input id="inpChannelName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                          <div class="help-block"></div></div>
+                                      <p>Channel name is <code>required</code> </p>
+                                  </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="block-button">
-                                  <a class="btn btn-success btn-lg btn-block">Add</a>
+                                  <a id="btnAddChannel" class="btn btn-success btn-lg btn-block">Add</a>
                                 </div>
                               </div>
                             </div>
                           </form>
+                          <section id="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="channelTable" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
                         </div>
                       </div>
+
                     </div>
+
                   </div>
+
                 </div>
+
               </section>
+
               <!-- Input Validation end -->
             </div>
+
           </div>
+
         </section>
         <section id="department_master" class="main-content hide_block">
           <div>
