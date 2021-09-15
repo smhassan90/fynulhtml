@@ -46,7 +46,7 @@
               </li>
               <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><span data-i18n="" class="menu-title">Master Upload</span></a>
                 <ul class="menu-content">
-                  <li><a id="channel_master_menu" class="menu-item">Channel Master</a>
+                  <li><a id="channel_menu" data-tablename="Channel" data-primarykeycolumn="ID" class="menu-item">Channel Master</a>
                   </li>
                   <li><a id="department_master_menu" class="menu-item">Department Master</a>
                   </li>
@@ -190,7 +190,7 @@
       </nav>
 
       <div id="admin_main_container" class="main-panel">
-        <section id="channel_master" class="main-content hide_block">
+        <section id="channel_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -240,7 +240,7 @@
                                     </div>
                                   </div>
                                   <div class="card-body">
-                                    <div id="channelTable" class="card-block">
+                                    <div id="channel_div_content" class="card-block">
                                     </div>
                                   </div>
                                 </div>
@@ -475,6 +475,7 @@
         }
     </script>
 
+    <script src="../assets/js/admin_main_page_generic.js"></script>
     <script src="../assets/js/admin_main_page.js"></script>
   </body>
 </html>
