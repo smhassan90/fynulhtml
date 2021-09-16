@@ -4,7 +4,11 @@ $(document).ready(function(){
         var primarykeycolumn = $("#channel_menu").attr("data-primarykeycolumn");
         addChannel(tablename,primarykeycolumn);
     });
+
+
+
 });
+
 
 
 function addChannel(tablename, primarykey){

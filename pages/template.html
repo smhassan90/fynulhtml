@@ -48,7 +48,7 @@
                 <ul class="menu-content">
                   <li><a id="channel_menu" data-tablename="Channel" data-primarykeycolumn="ID" class="menu-item">Channel Master</a>
                   </li>
-                  <li><a id="department_master_menu" class="menu-item">Department Master</a>
+                  <li><a id="department_menu" data-tablename="Department" data-primarykeycolumn="ID" class="menu-item">Department Master</a>
                   </li>
                   <li><a href="chat.html" class="menu-item">Depot Master</a>
                   </li>
@@ -86,7 +86,10 @@
                   </li>
                   <li><a href="chat.html" class="menu-item">Tehsil SNDPOP mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Territory Employee Mapping</a>
+                  <li><a id="territoryemployeemapping_menu" data-tablename="TerritoryEmployeeMapping"
+                         data-dropdown1="territoryCode" data-joiningtablename1 = "TerritoryMaster" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+
+                         class="mappingtable menu-item">Territory Employee Mapping</a>
                   </li>
                   <li><a href="chat.html" class="menu-item">Team Department Mapping</a>
                   </li>
@@ -264,9 +267,160 @@
           </div>
 
         </section>
-        <section id="department_master" class="main-content hide_block">
-          <div>
-            Content in tab 2
+        <section id="department_main_form" class="main-content hide_block">
+            <div class="content-wrapper">
+                <div class="container-fluid"><div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="content-header">Department Master</h2>
+                    </div>
+                </div>
+                    <!-- Input Validation start -->
+                    <section class="input-validation">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <form class="form-horizontal" novalidate="">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="form-group">
+                                                            <h5>ID <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpDepartmentID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>Channel Name <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpDepartmentName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                            <p>Department name is <code>required</code> </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="block-button">
+                                                            <a id="btnAddDepartment" class="btn btn-success btn-lg btn-block">Add</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <section class="extended">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <div class="card-title-wrap bar-success">
+                                                                    <h4 class="card-title">Data Entered</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="department_div_content" class="card-block">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Input Validation end -->
+                </div>
+
+            </div>
+        </section>
+        <section id="territoryemployeemapping_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Territory Employee Mapping</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>Territory Code <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="territoryemployeemapping_territorycode_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>Employee ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="territoryemployeemapping_emp_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <h5>Sharing <span class="required">*</span></h5>
+                                <div class="controls">
+                                  <input id="inpSharing" type="Select" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                  <div class="help-block"></div></div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAdd" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
           </div>
         </section>
       </div>

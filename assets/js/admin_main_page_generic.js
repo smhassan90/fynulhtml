@@ -20,6 +20,7 @@ $(document).ready(function(){
         getData(tablename,primarykey);
 
         show_hide_section_tab(selectorMainForm);
+
     });
 
 
@@ -54,6 +55,29 @@ $(document).ready(function(){
                 alert("Something went wrong while deleting!");
             }
         });
+    });
+
+
+    $('.mappingtable').click(function(){
+        var tablename = $(this).attr("data-tablename");
+        var primarykeycolumn = $(this).attr("data-primarykeycolumn");
+        var dropdown1 = $(this).attr('data-dropdown1');
+        var joiningtablename1 = $(this).attr('data-joiningtablename1');
+        var joiningcolumnname1 = $(this).attr('data-joiningcolumnname1');
+        var joiningcolumnvalue1 = $(this).attr('data-joiningcolumnvalue1');
+
+        var dropdown2 = $(this).attr('data-dropdown2');
+        var joiningtablename2 = $(this).attr('data-joiningtablename2');
+        var joiningcolumnname2 = $(this).attr('data-joiningcolumnname2');
+        var joiningcolumnvalue2 = $(this).attr('data-joiningcolumnvalue2');
+
+        if(dropdown1!==undefined){
+            getDropdownData(tablename,primarykeycolumn,dropdown1,joiningtablename1,joiningcolumnname1,joiningcolumnvalue1);
+        }
+
+        if(dropdown2!==undefined){
+            getDropdownData(tablename,primarykeycolumn,dropdown2,joiningtablename2,joiningcolumnname2,joiningcolumnvalue2);
+        }
     });
 });
 
@@ -167,4 +191,45 @@ function show_hide_section_tab($class_name) {
 
     $($class_name).removeClass("hide_block");
     $($class_name).addClass("active_block");
+}
+
+
+
+function getDropdownData(tablename, primarykeycolumn, dropdown1, joiningtablename1, joiningcolumnname1, joiningcolumnvalue1) {
+    var url= AllConstant.baseURL + "/getAdminDropDownData";
+    $.ajax({
+        type: "GET",
+        url: url,
+        contentType: "application/json",
+        data:{tableName:joiningtablename1, column1:joiningcolumnname1, column2: joiningcolumnvalue1},
+        dataType: "text",
+        success: function (data) {
+            var response = JSON.parse(data);
+
+            if(response.status==="200"){
+                populateDropDown(tablename, dropdown1, response.keyValueList);
+            }else{
+                alert("Something went wrong in populating dropdown!");
+            }
+        },
+        error: function (data) {
+            return "failed";
+        }
+    });
+}
+
+function getSelectSelectorID(tablename, dropdown1) {
+    var selector = "#";
+    selector += tablename +"_"+dropdown1+"_select";
+    selector = selector.toLowerCase();
+    return selector;
+}
+
+function populateDropDown(tablename, dropdown1, keyValueList) {
+    var seletSelectorID = getSelectSelectorID(tablename,dropdown1);
+    var html = "";
+    for(var i=0; i<keyValueList.length; i++){
+        html += "<option value='"+keyValueList[i].key+"'>"+keyValueList[i].key+" - "+keyValueList[i].value+"</option>";
+    }
+    $(seletSelectorID).html(html);
 }
