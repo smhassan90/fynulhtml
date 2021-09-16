@@ -134,7 +134,7 @@
       </div>
 
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+      <!--<nav class="navbar navbar-expand-lg navbar-light bg-faded">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-left"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><span class="d-lg-none navbar-right navbar-collapse-toggle"><a class="open-navbar-container"><i class="ft-more-vertical"></i></a></span><a id="navbar-fullscreen" href="javascript:;" class="mr-2 display-inline-block apptogglefullscreen"><i class="ft-maximize blue-grey darken-4 toggleClass"></i>
@@ -188,7 +188,7 @@
             </div>
           </div>
         </div>
-      </nav>
+      </nav>-->
 
       <div id="admin_main_container" class="main-panel">
       <section id="channel_master" class="main-content hide_block">
@@ -291,6 +291,7 @@
                 <h2 class="content-header">Depot Master</h2>
               </div>
             </div>
+
               <!-- Input Validation start -->
               <section class="input-validation">
                 <div class="row">
@@ -301,6 +302,13 @@
                           <form class="form-horizontal" novalidate="">
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>Depot Code <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                  <p>Depot Code is <code>required</code> </p>
+                                </div>
                                 <div class="form-group">
                                   <h5>Depot Name <span class="required">*</span></h5>
                                   <div class="controls">
@@ -956,7 +964,7 @@
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                   <div class="form-group row">
-                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Tehsil ID <span class="required">*</span></h5>
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Tehsil ID <span class="required"></span></h5>
                                       <div class="col-md-9">
                                         <select id="projectinput6" name="interested" class="form-control">
                                           <option value="none" selected="" disabled="">Please Select</option>
@@ -969,7 +977,7 @@
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">SNDPOP ID <span class="required">*</span></h5>
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">SNDPOP ID <span class="required"></span></h5>
                                       <div class="col-md-9">
                                         <select id="projectinput6" name="interested" class="form-control">
                                           <option value="none" selected="" disabled="">Please Select</option>
@@ -1020,7 +1028,7 @@
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                   <div class="form-group row">
-                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Territory Code <span class="required">*</span></h5>
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Territory Code <span class="required"></span></h5>
                                       <div class="col-md-9">
                                         <select id="projectinput6" name="interested" class="form-control">
                                           <option value="none" selected="" disabled="">Please Select</option>
@@ -1033,7 +1041,7 @@
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Employee Position ID <span class="required">*</span></h5>
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Employee Position ID <span class="required"></span></h5>
                                       <div class="col-md-9">
                                         <select id="projectinput6" name="interested" class="form-control">
                                           <option value="none" selected="" disabled="">Please Select</option>
@@ -1088,7 +1096,7 @@
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                   <div class="form-group row">
-                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Tehsil ID <span class="required">*</span></h5>
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Team Name <span class="required"></span></h5>
                                       <div class="col-md-9">
                                         <select id="projectinput6" name="interested" class="form-control">
                                           <option value="none" selected="" disabled="">Please Select</option>
@@ -1101,19 +1109,7 @@
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">SNDPOP ID <span class="required">*</span></h5>
-                                      <div class="col-md-9">
-                                        <select id="projectinput6" name="interested" class="form-control">
-                                          <option value="none" selected="" disabled="">Please Select</option>
-                                          <option value="design">design</option>
-                                          <option value="development">development</option>
-                                          <option value="illustration">illustration</option>
-                                          <option value="branding">branding</option>
-                                          <option value="video">video</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">SNDPOP ID <span class="required">*</span></h5>
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Alias <span class="required"></span></h5>
                                       <div class="col-md-9">
                                         <select id="projectinput6" name="interested" class="form-control">
                                           <option value="none" selected="" disabled="">Please Select</option>
@@ -1126,6 +1122,19 @@
                                       </div>
                                     </div>
 
+                                   <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Department ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
                               <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
@@ -1143,50 +1152,7 @@
                 </div>
               </section>
             <!-- Input Validation end -->
-              <!-- Input Validation start -->
-              <section class="input-validation">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="card-block">
-                          <form class="form-horizontal" novalidate="">
-                            <div class="row">
-                              <div class="col-lg-6 col-md-12">
-                                <div class="form-group">
-                                  <h5>Team Name <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Team Name is <code>required</code> </p>
-                                  <h5>Alias <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Alias is <code>required</code> </p>
-                                  <h5>Department ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Department ID <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-lg-6 col-md-12">
-                                <div class="block-button">
-                                  <a class="btn btn-success btn-lg btn-block">Add</a>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <!-- Input Validation end -->
+             
             </div>
           </div>
       </section>
@@ -1197,7 +1163,7 @@
                 <h2 class="content-header">Team-Region Mapping</h2>
               </div>
             </div>
-              <!-- Input Validation start -->
+            <!-- Input Validation start -->
               <section class="input-validation">
                 <div class="row">
                   <div class="col-md-12">
@@ -1208,23 +1174,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Name <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Name is <code>required</code> </p>
-                                  <h5>Alias <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Alias is <code>required</code> </p>
-                                </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Team Name <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Alias <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1235,7 +1216,8 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
+             
             </div>
           </div>
       </section>
@@ -1246,7 +1228,7 @@
                 <h2 class="content-header">Provider-Tehsil Mapping</h2>
               </div>
             </div>
-              <!-- Input Validation start -->
+            <!-- Input Validation start -->
               <section class="input-validation">
                 <div class="row">
                   <div class="col-md-12">
@@ -1257,23 +1239,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Provider Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Provider Code is <code>required</code> </p>
-                                  <h5>Tehsil ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Tehsil ID is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Provider Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Tehsil ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1284,7 +1281,8 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
+              
             </div>
           </div>
       </section>
@@ -1306,23 +1304,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Position Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Position Code is <code>required</code> </p>
-                                  <h5>Customer Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Customer Code is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Position Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Customer Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1333,7 +1346,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1355,23 +1368,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Depot Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Depot Code is <code>required</code> </p>
-                                  <h5>Position Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Position Code is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Depot Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Position Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1382,7 +1410,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1404,23 +1432,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>PJP Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>PJP Code is <code>required</code> </p>
-                                  <h5>Position Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Position Code is <code>required</code> </p>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">PJP Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
                                     </div>
-                              </div>
-                            </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Position Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1431,7 +1474,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1453,23 +1496,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Team ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Team ID is <code>required</code> </p>
-                                  <h5>Position Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Position Code is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Team ID  <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Position Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1480,7 +1538,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1502,23 +1560,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Team Region ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Team Region ID is <code>required</code> </p>
-                                  <h5>Position Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Position Code is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Team Region ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Position Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1529,7 +1602,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1551,28 +1624,52 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Position Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Position Code is <code>required</code> </p>
-                                  <h5>Designation ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Designation ID is <code>required</code> </p>
-                                  <h5>Provider Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Provider Code is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Position Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Designation ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+
+                                   <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Provider Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1583,7 +1680,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1605,23 +1702,40 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Position Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Position Code is <code>required</code> </p>
-                                  <h5>Zone ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Zone ID is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Position Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6"> Zone ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
+                                  
+                                    <div class="help-block"></div></div><p></p>
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1632,7 +1746,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1654,28 +1768,52 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>Employee ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Employee ID is <code>required</code> </p>
-                                  <h5>Position Code <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Position Code is <code>required</code> </p>
-                                  <h5>SAS ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>SAS ID is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Employee ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Position Code <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+
+                                   <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">SAS ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1686,7 +1824,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1708,23 +1846,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>District ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>District ID is <code>required</code> </p>
-                                  <h5>Province ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Province ID is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6"> District ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6"> Province ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1735,7 +1888,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1757,23 +1910,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>District ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>District ID is <code>required</code> </p>
-                                  <h5>Region ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Region ID is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">District ID  <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Region ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1784,7 +1952,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
@@ -1806,23 +1974,38 @@
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
-                                  <h5>District ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>District ID is <code>required</code> </p>
-                                  <h5>Tehsil ID <span class="required">*</span></h5>
-                                  <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
-                                    <div class="help-block"></div></div>
-                                  <p>Tehsil ID is <code>required</code> </p>
-                                  </div>
-                              </div>
-                            </div>
+                                  <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6"> District ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <h5 class="col-md-6 label-control text-left" for="projectinput6">Tehsil ID <span class="required"></span></h5>
+                                      <div class="col-md-9">
+                                        <select id="projectinput6" name="interested" class="form-control">
+                                          <option value="none" selected="" disabled="">Please Select</option>
+                                          <option value="design">design</option>
+                                          <option value="development">development</option>
+                                          <option value="illustration">illustration</option>
+                                          <option value="branding">branding</option>
+                                          <option value="video">video</option>
+                                        </select>
+                                      </div>
+                                    </div>
                             <div class="row">
-                              <div class="col-lg-6 col-md-12">
+                              <div class="col-lg-9 col-md-12">
                                 <div class="block-button">
                                   <a class="btn btn-success btn-lg btn-block">Add</a>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1833,7 +2016,7 @@
                   </div>
                 </div>
               </section>
-              <!-- Input Validation end -->
+            <!-- Input Validation end -->
             </div>
           </div>
       </section>
