@@ -31,14 +31,13 @@
   <body data-col="2-columns" class=" 2-columns ">
     <!-- ////////////////////////////////////////////////////////////////////////////-->
     <div class="wrapper">
-
-
       <div data-active-color="black" data-background-color="white" data-image="" class="app-sidebar">
         <div class="sidebar-header">
           <div class="logo clearfix"><a href="index.html" class="logo-text float-left">
-              <div class="logo-img"><img src="../app-assets/img/logo-dark.png" alt="Convex Logo"/></div><span class="text align-middle">CONVEX</span></a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="ft-disc toggle-icon"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-circle"></i></a></div>
+            <div class="logo-img"><img src="" alt=""/></div><span class="text align-middle">Greenstar</span></a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="ft-disc* toggle-icon"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-circle"></i></a>
+          </div>
         </div>
-        <div class="sidebar-content">
+      <div class="sidebar-content">
           <div class="nav-container">
             <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
               <li class="nav-item"><a href="#" class="menu-item active"><i class="icon-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
@@ -46,38 +45,39 @@
               </li>
               <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><span data-i18n="" class="menu-title">Master Upload</span></a>
                 <ul class="menu-content">
-                  <li><a id="channel_master_menu" class="menu-item">Channel Master</a>
+                  <li><a id="channel_menu" data-tablename="Channel" data-primarykeycolumn="ID" class="menu-item">Channel Master</a>
+
                   </li>
-                  <li><a id="department_master_menu" class="menu-item">Department Master</a>
+                  <li><a id="department_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Department Master</a>
                   </li>
-                  <li><a id="depot_master_menu" class="menu-item">Depot Master</a>
+                  <li><a id="depot_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Depot Master</a>
                   </li>
-                  <li><a id="designation_master_menu" class="menu-item">Designation Master</a>
+                  <li><a id="designation_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Designation Master</a>
                   </li>
-                  <li><a  id="district_master_menu" class="menu-item">District Master</a>
+                  <li><a  id="district_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">District Master</a>
                   </li>
-                  <li><a  id="donor_master_menu" class="menu-item">Donor Master</a>
+                  <li><a  id="donor_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Donor Master</a>
                   </li>
 
-                  <li><a  id="employee_master_menu" class="menu-item">Employee Master</a>
+                  <li><a  id="employee_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Employee Master</a>
                   </li>
-                  <li><a  id="mnp_channel_master_menu" class="menu-item">MNP Channel Master</a>
+                  <li><a  id="mnp_channel_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">MNP Channel Master</a>
                   </li>
-                  <li><a  id="group_on_master_menu" class="menu-item">GroupOn Master</a>
-                  </li>
-
-                  <li><a  id="province_master_menu"class="menu-item">Province Master</a>
-                  </li>
-                  <li><a  id="region_master_menu" class="menu-item">Region Master</a>
+                  <li><a  id="group_on_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">GroupOn Master</a>
                   </li>
 
-                  <li><a  id="tehsil_master_menu" class="menu-item">Tehsil Master</a>
+                  <li><a  id="province_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Province Master</a>
+                  </li>
+                  <li><a  id="region_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Region Master</a>
+                  </li>
 
-                  <li><a  id="territory_master_menu" class="menu-item">Territory Master</a>
+                  <li><a  id="tehsil_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Tehsil Master</a>
+
+                  <li><a  id="territory_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Territory Master</a>
                   </li>
-                  <li><a  id="ucc_master_menu" class="menu-item">UCC Master</a>
+                  <li><a  id="ucc_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">UCC Master</a>
                   </li>
-                  <li><a  id="zone_master_menu" class="menu-item">Zone Master</a>
+                  <li><a  id="zone_menu" data-tablename="Channel" data-primarykeycolumn="ID"class="menu-item">Zone Master</a>
                   </li>
                 </ul>
               </li>
@@ -191,7 +191,7 @@
       </nav>-->
 
       <div id="admin_main_container" class="main-panel">
-      <section id="channel_master" class="main-content hide_block">
+      <section id="channel_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -208,34 +208,63 @@
                           <form class="form-horizontal" novalidate="">
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
-                                <div class="form-group">
-                                  <h5>Channel Name <span class="required">*</span></h5>
+                                  <div class="form-group">
+                                  <h5>ID <span class="required">*</span></h5>
                                   <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <input id="inpChannelID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
                                     <div class="help-block"></div></div>
-                                  <p>Channel name is <code>required</code> </p>
                                 </div>
+                                  <div class="form-group">
+                                      <h5>Channel Name <span class="required">*</span></h5>
+                                      <div class="controls">
+                                          <input id="inpChannelName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                          <div class="help-block"></div></div>
+                                      <p>Channel name is <code>required</code> </p>
+                                  </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="block-button">
-                                  <a class="btn btn-success btn-lg btn-block">Add</a>
+                                  <a id="btnAddChannel" class="btn btn-success btn-lg btn-block">Add</a>
                                 </div>
                               </div>
                             </div>
                           </form>
+                          <section id="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="channel_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
                         </div>
                       </div>
+
                     </div>
+
                   </div>
+
                 </div>
+
               </section>
+
               <!-- Input Validation end -->
             </div>
+
           </div>
       </section>
-      <section id="department_master" class="main-content hide_block">
+      <section id="department_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -284,7 +313,7 @@
             </div>
           </div>
       </section>
-      <section id="depot_master" class="main-content hide_block">
+      <section id="depot_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -336,7 +365,7 @@
             </div>
           </div>
       </section>
-      <section id="designation_master" class="main-content hide_block">
+      <section id="designation_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -380,7 +409,7 @@
             </div>
           </div>
       </section>
-      <section id="district_master" class="main-content hide_block">
+      <section id="district_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -424,7 +453,7 @@
             </div>
           </div>
       </section>
-      <section id="donor_master" class="main-content hide_block">
+      <section id="donor_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -473,7 +502,7 @@
             </div>
           </div>
       </section>
-      <section id="employee_master" class="main-content hide_block">
+      <section id="employee_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -532,7 +561,7 @@
             </div>
           </div>
       </section>
-      <section id="mnp_channel_master" class="main-content hide_block">
+      <section id="mnp_channel_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -576,7 +605,7 @@
             </div>
           </div>
       </section>
-      <section id="group_on_master" class="main-content hide_block">
+      <section id="group_on_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -655,7 +684,7 @@
             </div>
           </div>
       </section>
-      <section id="province_master" class="main-content hide_block">
+      <section id="province_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -699,7 +728,7 @@
             </div>
           </div>
       </section>
-      <section id="region_master" class="main-content hide_block">
+      <section id="region_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -743,7 +772,7 @@
             </div>
           </div>
       </section>
-      <section id="tehsil_master" class="main-content hide_block">
+      <section id="tehsil_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -797,7 +826,7 @@
             </div>
           </div>
       </section>
-      <section id="territory_master" class="main-content hide_block">
+      <section id="territory_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -841,7 +870,7 @@
             </div>
           </div>
       </section>
-      <section id="ucc_master" class="main-content hide_block">
+      <section id="ucc_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -885,7 +914,7 @@
             </div>
           </div>
       </section>
-      <section id="zone_master" class="main-content hide_block">
+      <section id="zone_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -2228,7 +2257,7 @@
             }
         }
     </script>
-
+    <script src="../assets/js/admin_main_page_generic.js"></script>
     <script src="../assets/js/admin_main_page.js"></script>
   </body>
 </html>

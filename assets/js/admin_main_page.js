@@ -1,111 +1,32 @@
 $(document).ready(function(){
-
-    $('.menu-item').click(function(){
-        $(".menu-item").parent().removeClass("active");
-        $(this).parent().addClass("active");
+    $('#btnAddChannel').click(function(){
+        var tablename = $("#channel_menu").attr("data-tablename");
+        var primarykeycolumn = $("#channel_menu").attr("data-primarykeycolumn");
+        addChannel(tablename,primarykeycolumn);
     });
-
-    $('#channel_master_menu').click(function(){
-        show_hide_section_tab("#channel_master");
-    });
-    $('#department_master_menu').click(function(){
-        show_hide_section_tab("#department_master");
-    });
-    $('#depot_master_menu').click(function(){
-        show_hide_section_tab("#depot_master");
-    });
-    $('#designation_master_menu').click(function(){
-        show_hide_section_tab("#designation_master");
-    });
-    $('#district_master_menu').click(function(){
-        show_hide_section_tab("#district_master");
-    });
-    $('#donor_master_menu').click(function(){
-        show_hide_section_tab("#donor_master");
-    });
-    $('#employee_master_menu').click(function(){
-        show_hide_section_tab("#employee_master");
-    });
-    $('#mnp_channel_master_menu').click(function(){
-        show_hide_section_tab("#mnp_channel_master");
-    });
-    $('#group_on_master_menu').click(function(){
-        show_hide_section_tab("#group_on_master");
-    });
-    $('#province_master_menu').click(function(){
-        show_hide_section_tab("#province_master");
-    });
-    $('#region_master_menu').click(function(){
-        show_hide_section_tab("#region_master");
-    });
-    $('#tehsil_master_menu').click(function(){
-        show_hide_section_tab("#tehsil_master");
-    });
-    $('#territory_master_menu').click(function(){
-        show_hide_section_tab("#territory_master");
-    });
-    $('#ucc_master_menu').click(function(){
-        show_hide_section_tab("#ucc_master");
-    });
-    $('#zone_master_menu').click(function(){
-        show_hide_section_tab("#zone_master");
-    });
-       });
-    $('#tehsil_sndpop_mapping_menu').click(function(){
-        show_hide_section_tab("#tehsil_sndpop_mapping");
-    });
-     $('#territory_employee_mapping_menu').click(function(){
-        show_hide_section_tab("#territory_employee_mapping");
-    });
-     $('#team_department_mapping_menu').click(function(){
-        show_hide_section_tab("#team_department_mapping");
-    });
-     $('#team_region_mapping_menu').click(function(){
-        show_hide_section_tab("#team_region_mapping");
-    });
-     $('#provider_tehsil_mapping_menu').click(function(){
-        show_hide_section_tab("#provider_tehsil_mapping");
-    });
-     $('#employee_customer_mapping_menu').click(function(){
-        show_hide_section_tab("#employee_customer_mapping");
-    });
-     $('#employee_depot_mapping_menu').click(function(){
-        show_hide_section_tab("#employee_depot_mapping");
-    });
-     $('#employee_pjp_mapping_menu').click(function(){
-        show_hide_section_tab("#employee_pjp_mapping");
-    });
-     $('#employee_team_mapping_menu').click(function(){
-        show_hide_section_tab("#employee_team_mapping");
-    });
-     $('#employee_team_region_mapping_menu').click(function(){
-        show_hide_section_tab("#employee_team_region_mapping");
-    });
-     $('#employee_provider_mapping_menu').click(function(){
-        show_hide_section_tab("#employee_provider_mapping");
-    });
-     $('#employee_zone_mapping_menu').click(function(){
-        show_hide_section_tab("#employee_zone_mapping");
-    });
-     $('#employeeId_positionId_mapping_menu').click(function(){
-        show_hide_section_tab("#employeeId_positionId_mapping");
-    });         
-   $('#district_province_mapping_menu').click(function(){
-        show_hide_section_tab("#district_province_mapping");
-    });
-     $('#district_region_mapping_menu').click(function(){
-        show_hide_section_tab("#district_region_mapping");
-    });
-     $('#district_tehsil_mapping_menu').click(function(){
-        show_hide_section_tab("#district_tehsil_mapping");
-    }); 
+});
 
 
+function addChannel(tablename, primarykey){
+    var url= AllConstant.baseURL + "/addChannel";
+    var id = $('#inpChannelID').val();
+    var name = $('#inpChannelName').val();
+    $.ajax({
+        type: "GET",
+        url: url,
+        data:{id:id, name:name},
+        contentType: "application/json",
+        dataType: "text",
+        success: function (data) {
+            var resp = JSON.parse(data);
 
-function show_hide_section_tab($class_name) {
-    $(".main-content").removeClass("active_block");
-    $(".main-content").addClass("hide_block");
+            if(resp.status === "200"){
+                getData(tablename,primarykey);
+            }
 
-    $($class_name).removeClass("hide_block");
-    $($class_name).addClass("active_block");
+        },
+        error: function (data) {
+            return "failed";
+        }
+    });
 }
