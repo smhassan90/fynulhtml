@@ -1,5 +1,5 @@
 const AllConstant = {
-    baseURL: "http://localhost:8080"
+    baseURL: "http://172.16.16.192:8080"
 };
 
 $(document).ready(function(){
