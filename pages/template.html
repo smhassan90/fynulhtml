@@ -46,75 +46,113 @@
               </li>
               <li class="has-sub nav-item"><a href="#"><i class="icon-screen-desktop"></i><span data-i18n="" class="menu-title">Master Upload</span></a>
                 <ul class="menu-content">
-                  <li><a id="channel_master_menu" class="menu-item">Channel Master</a>
+                  <li><a id="channel_menu"  data-tablename="Channel" data-primarykeycolumn="ID" class="menu-item">Channel Master</a>
                   </li>
-                  <li><a id="department_master_menu" class="menu-item">Department Master</a>
+                  <li><a id="department_menu" data-tablename="Department" data-primarykeycolumn="ID" class="menu-item">Department Master</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Depot Master</a>
+                  <li><a id="depot_menu" data-tablename="Depot" data-primarykeycolumn="CODE" class="menu-item">Depot Master</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Designation Master</a>
+                  <li><a id="designation_menu" data-tablename="Designation" data-primarykeycolumn="ID" class="menu-item">Designation Master</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">District Master</a>
+                  <li><a id="district_menu" data-tablename="District" data-primarykeycolumn="ID" class="menu-item">District Master</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Donor Master</a>
-                  </li>
-
-                  <li><a href="chat.html" class="menu-item">Employee Master</a>
-                  </li>
-                  <li><a href="chat.html" class="menu-item">MNP Channel Master</a>
-                  </li>
-                  <li><a href="chat.html" class="menu-item">GroupOn Master</a>
+                  <li><a id="donor_menu" data-tablename="Donor" data-primarykeycolumn="CODE" class="menu-item">Donor Master</a>
                   </li>
 
-                  <li><a href="chat.html" class="menu-item">Province Master</a>
+                  <li><a id="employee_menu" data-tablename="Employee" data-primarykeycolumn="ID" class="mappingtable menu-item"
+                         data-dropdown1="DESIGNATION_ID" data-joiningtablename1 = "Designation" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                         data-dropdown2="DEPARTMENT_ID" data-joiningtablename2 = "Department" data-joiningcolumnname2="ID" data-joiningcolumnvalue2 = "NAME"
+
+                  >Employee Master</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Region Master</a>
+                  <li><a id="mnpchannelmapping_menu" class="mappingtable menu-item"
+                         data-tablename="MNPChannelMapping" data-primarykeycolumn="CLASS_CODE"
+                         data-dropdown1="CHANNEL" data-joiningtablename1 = "Channel" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                  >MNP Channel Master</a>
+                  </li>
+                  <li><a id="PRDGroupOn_menu" data-tablename="PRDGroupOn" data-primarykeycolumn="PRD_NAME" class="menu-item">GroupOn Master</a>
                   </li>
 
-                  <li><a href="chat.html" class="menu-item">Tehsil Master</a>
+                  <li><a id="Provincemaster_menu" data-tablename="ProvinceMaster" data-primarykeycolumn="ID" class="menu-item">Province Master</a>
+                  </li>
+                  <li><a id="RegionMaster_menu" data-tablename="RegionMaster" data-primarykeycolumn="ID" class="menu-item">Region Master</a>
+                  </li>
 
-                  <li><a href="chat.html" class="menu-item">Territory Master</a>
+                  <li><a id="TehsilMaster_menu" data-tablename="TehsilMaster" data-primarykeycolumn="ID" class="menu-item">Tehsil Master</a>
+
+                  <li><a id="TerritoryMaster_menu" data-tablename="TerritoryMaster" data-primarykeycolumn="ID" class="menu-item">Territory Master</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">UCC Master</a>
+                  <li><a  class="menu-item">UCC Master</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Zone Master</a>
+                  <li><a id="Zone_menu" data-tablename="Zone" data-primarykeycolumn="ID" class="menu-item">Zone Master</a>
                   </li>
                 </ul>
               </li>
               <li class="has-sub nav-item"><a href="#"><i class="icon-magnet"></i><span data-i18n="" class="menu-title">Mapping Upload</span></a>
                 <ul class="menu-content">
                   </li>
-                  <li><a href="chat.html" class="menu-item">Tehsil SNDPOP mapping</a>
+                  <li><a class="menu-item">Tehsil SNDPOP mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Territory Employee Mapping</a>
+                  <li><a id="territoryemployeemapping_menu" data-tablename="TerritoryEmployeeMapping"
+                         data-dropdown1="territoryCode" data-joiningtablename1 = "TerritoryMaster" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+
+                         class="menu-item">Territory Employee Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Team Department Mapping</a>
+                  <li><a id="TeamDepartment_menu" data-tablename="TeamDepartment"
+                         data-dropdown1="DEPT_ID" data-joiningtablename1 = "Department" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                         class="mappingtable menu-item">Team Department Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Team Region Mapping</a>
+                  <li><a id="teamregion_menu" data-tablename="TeamRegion" data-primarykeycolumn="ID" class="menu-item">Team Region Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Provider Tehsil Mapping</a>
+                  <li><a  id="providertehsil_menu" data-tablename="ProviderTehsil" class="mappingtable menu-item"
+                          data-dropdown1="PROVIDERCODE" data-joiningtablename1 = "Providers" data-joiningcolumnname1="code" data-joiningcolumnvalue1 = "name"
+                          data-dropdown2="TEHSIL_ID" data-joiningtablename2 = "TehsilMaster" data-joiningcolumnname2="ID" data-joiningcolumnvalue2 = "NAME"
+                  >Provider Tehsil Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Employee Customer Mapping</a>
+                  <li><a  class="menu-item">Employee Customer Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Employee Depot Mapping</a>
+                  <li><a  id="employeedepot_menu" data-tablename="EmployeeDepot" class="mappingtable menu-item"
+                          data-dropdown1="DEPOT_CODE" data-joiningtablename1 = "Depot" data-joiningcolumnname1="CODE" data-joiningcolumnvalue1 = "NAME"
+                          data-dropdown2="POSITION_CODE" data-joiningtablename2 = "EmployeeIDPositionIDMapping" data-joiningcolumnname2="POSITION_ID" data-joiningcolumnvalue2 = "EMPLOYEE_ID"
+                  >Employee Depot Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Employee PJP Mapping</a>
+                  <li><a id="employeepjp_menu" data-tablename="EmployeePJP" class="mappingtable menu-item"
+                         data-dropdown1="POSITION_CODE" data-joiningtablename1 = "EmployeeIDPositionIDMapping" data-joiningcolumnname1="POSITION_ID" data-joiningcolumnvalue1 = "EMPLOYEE_ID"
+                         class="menu-item">Employee PJP Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Employee Team Mapping</a>
+                  <li><a id="employeepositionteam_menu" data-tablename="EmployeePositionTeam" class="mappingtable menu-item"
+                         data-dropdown1="TEAM_ID" data-joiningtablename1 = "TeamDepartment" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                         data-dropdown2="POSITION_ID" data-joiningtablename2 = "EmployeeIDPositionIDMapping" data-joiningcolumnname2="POSITION_ID" data-joiningcolumnvalue2 = "EMPLOYEE_ID"
+                         >Employee Team Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Employee Team Region Mapping</a>
+                  <li><a id="employeepositionteamregion_menu" data-tablename="EmployeePositionTeamRegion" class="mappingtable menu-item"
+                         data-dropdown1="TEAMREGION_ID" data-joiningtablename1 = "TeamRegion" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                         data-dropdown2="POSITION_ID" data-joiningtablename2 = "EmployeeIDPositionIDMapping" data-joiningcolumnname2="POSITION_ID" data-joiningcolumnvalue2 = "EMPLOYEE_ID"
+                  >Employee Team Region Mapping</a>
                   </li>
                   <li><a href="chat.html" class="menu-item">Employee Provider Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Employee Zone Mapping</a>
+                  <li><a id="employeezonemapping_menu" data-tablename="EmployeeZoneMapping" class="mappingtable menu-item"
+                         data-dropdown1="ZONE_ID" data-joiningtablename1 = "Zone" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "SUBZONE"
+                         data-dropdown2="POSITION_ID" data-joiningtablename2 = "EmployeeIDPositionIDMapping" data-joiningcolumnname2="POSITION_ID" data-joiningcolumnvalue2 = "EMPLOYEE_ID"
+                  >Employee Zone Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">Employee ID and Position ID Mapping</a>
+                  <li><a id="employeeidpositionidmapping_menu" data-tablename="EmployeeIDPositionIDMapping" class="mappingtable menu-item"
+                         data-dropdown1="EMPLOYEE_ID" data-joiningtablename1 = "Employee" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                  >Employee ID and Position ID Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">District Province Mapping</a>
+                  <li><a id="districtprovince_menu" data-tablename="DistrictProvince" class="mappingtable menu-item"
+                         data-dropdown1="DIST_ID" data-joiningtablename1 = "District" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                         data-dropdown2="PROVINCE_ID" data-joiningtablename2 = "ProvinceMaster" data-joiningcolumnname2="ID" data-joiningcolumnvalue2 = "NAME"
+                  >District Province Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">District Region Mapping</a>
+                  <li><a id="districtregionmapping_menu" data-tablename="DistrictRegionMapping" class="mappingtable menu-item"
+                         data-dropdown1="DIST_ID" data-joiningtablename1 = "District" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                         data-dropdown2="REGION_ID" data-joiningtablename2 = "RegionMaster" data-joiningcolumnname2="ID" data-joiningcolumnvalue2 = "NAME">District Region Mapping</a>
                   </li>
-                  <li><a href="chat.html" class="menu-item">District Tehsil Mapping</a>
+                  <li><a id="districttehsil_menu" data-tablename="DistrictTehsil" class="mappingtable menu-item"
+                         data-dropdown1="DIST_ID" data-joiningtablename1 = "District" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                         data-dropdown2="TEHSIL_ID" data-joiningtablename2 = "TehsilMaster" data-joiningcolumnname2="ID" data-joiningcolumnvalue2 = "NAME">District Tehsil Mapping</a>
                   </li>
                 </ul>
               </li>
@@ -190,7 +228,7 @@
       </nav>
 
       <div id="admin_main_container" class="main-panel">
-        <section id="channel_master" class="main-content hide_block">
+        <section id="channel_main_form" class="main-content hide_block">
           <div class="content-wrapper">
             <div class="container-fluid"><div class="row">
               <div class="col-sm-12">
@@ -207,36 +245,2110 @@
                           <form class="form-horizontal" novalidate="">
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
-                                <div class="form-group">
-                                  <h5>Channel Name <span class="required">*</span></h5>
+                                  <div class="form-group">
+                                  <h5>ID <span class="required">*</span></h5>
                                   <div class="controls">
-                                    <input type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <input id="inpChannelID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
                                     <div class="help-block"></div></div>
-                                  <p>Channel name is <code>required</code> </p>
+                                </div>
+                                  <div class="form-group">
+                                      <h5>Channel Name <span class="required">*</span></h5>
+                                      <div class="controls">
+                                          <input id="inpChannelName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                          <div class="help-block"></div></div>
+                                      <p>Channel name is <code>required</code> </p>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddChannel" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <section id="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="channel_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+
+        </section>
+        <section id="department_main_form" class="main-content hide_block">
+            <div class="content-wrapper">
+                <div class="container-fluid"><div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="content-header">Department Master</h2>
+                    </div>
+                </div>
+                    <!-- Input Validation start -->
+                    <section class="input-validation">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <form class="form-horizontal" novalidate="">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="form-group">
+                                                            <h5>ID <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpDepartmentID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>Department Name <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpDepartmentName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="block-button">
+                                                            <a id="btnAddDepartment" class="btn btn-success btn-lg btn-block">Add</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <section class="extended">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <div class="card-title-wrap bar-success">
+                                                                    <h4 class="card-title">Data Entered</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="department_div_content" class="card-block">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Input Validation end -->
+                </div>
+
+            </div>
+        </section>
+        <section id="depot_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Depot Master</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>CODE <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpDepotID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>Depot Name <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpDepotName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                  <p>Depot name is <code>required</code> </p>
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col-lg-6 col-md-12">
                                 <div class="block-button">
-                                  <a class="btn btn-success btn-lg btn-block">Add</a>
+                                  <a id="btnAddDepot" class="btn btn-success btn-lg btn-block">Add</a>
                                 </div>
                               </div>
                             </div>
                           </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="depot_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
                         </div>
                       </div>
+
                     </div>
+
                   </div>
+
                 </div>
+
               </section>
+
               <!-- Input Validation end -->
             </div>
+
           </div>
         </section>
-        <section id="department_master" class="main-content hide_block">
-          <div>
-            Content in tab 2
+        <section id="designation_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Designation Master</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpDesignationID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>Designation Name <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpDesignationName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                  <p>Designation name is <code>required</code> </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddDesignation" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="designation_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="district_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">District Master</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpDistrictID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>district Name <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpDistrictName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                  <p>District name is <code>required</code> </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddDistrict" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="district_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="donor_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Donor Master</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpDonorID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>Donor Name <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpDonorName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                  <p>District name is <code>required</code> </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddDonor" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="donor_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="employee_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Employee Master</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpEmployeeID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>Employee Name <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpEmployeeName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                  <p>Employee name is <code>required</code> </p>
+                                </div>
+                                <div class="form-group">
+                                  <h5>BASE <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpEmployeeBase" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                  <p>Base is <code>required</code> </p>
+                                </div>
+                                <div class="form-group">
+                                  <h5>Designation ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employee_designation_id_select" name="location2"
+                                      >
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>Designation ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employee_department_id_select" name="location2"
+                                    >
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddEmployee" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="employee_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="mnpchannelmapping_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">MNP Channel Master</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>CLASS CODE <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpCLASS_CODE" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>CHANNEL <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="mnpchannelmapping_channel_select" name="location2"
+                                    >
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddMNPChannelMapping" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="mnpchannelmapping_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+
+        <section id="prdgroupon_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">GROUPON Master</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>PRD_NAME <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpPRD_NAME" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>PRD_CAT <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpPRD_CAT" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>GRP <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpGRP" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>PRD_GRP <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpPRD_GRP" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>GROUP_ON <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpGROUP_ON" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>QTY_CONVERSION <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpQTY_CONVERSION" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>CYP_CONVERSION <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpCYP_CONVERSION" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddPRDGroupOn" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                              <section class="extended">
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="prdgroupon_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+          </section>
+        <section id="provincemaster_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Province Master</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpProvinceID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>Province Name <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpProvinceName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddProvince" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                              <section >
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="provincemaster_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+
+          </section>
+        <section id="regionmaster_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Region Master</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpRegionID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>Region Name <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpRegionName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddRegion" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                              <section >
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="regionmaster_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+
+          </section>
+        <section id="tehsilmaster_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Tehsil Master</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTehsilID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>Tehsil Name <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTehsilName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>URBAN_PERC <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpURBAN_PERC" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>RURAL_PERC <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpRURAL_PERC" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddTehsil" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                              <section >
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="tehsilmaster_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+
+          </section>
+        <section id="territorymaster_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Territory Master</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTerritoryID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>Territory Name <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTerritoryName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddTerritory" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                              <section >
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="territorymaster_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+
+          </section>
+        <section id="zone_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Zone Master</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpZoneID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>SUBZONE <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpSUBZONE" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>ZONE <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpZONE" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>SUBZONE ALIAS <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpSUBZONEALIAS" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>ZONE ALIAS <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpZONEALIAS" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddZone" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                              <section >
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="zone_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+
+          </section>
+        <section id="territoryemployeemapping_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Territory Employee Mapping</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>Territory Code <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <select class="custom-select form-control" id="territoryemployeemapping_territorycode_select" name="location2">
+
+                                                                  </select>
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>Employee ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <select class="custom-select form-control" id="territoryemployeemapping_emp_id_select" name="location2">
+
+                                                                  </select>
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group">
+                                                          <h5>Sharing <span class="required">*</span></h5>
+                                                          <div class="controls">
+                                                              <input id="inpSharing" type="Select" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                              <div class="help-block"></div></div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAdd" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+                                              </form>
+                                              <section class="extended">
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="territoryemployeemapping_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+          </section>
+        <section id="teamdepartment_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Team Department Mapping</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTeamDepartmentID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>NAME <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTeamDepartmentName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>ALIAS <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTamDepartmentAlias" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>DEPT_ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <select class="custom-select form-control" id="teamdepartment_dept_id_select" name="location2">
+
+                                                                  </select>
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddTeamDepartment" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+                                              </form>
+                                              <section class="extended">
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="teamdepartment_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+          </section>
+        <section id="teamregion_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Team Region Master</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTeamRegionID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5> Name <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTeamRegionName" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5> Alias <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpTeamRegionAlias" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddTeamRegion" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                              <section class="extended">
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="teamregion_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+          </section>
+        <section id="providertehsil_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Provider Tehsil Mapping</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>ProviderCode <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <select class="custom-select form-control" id="providertehsil_providercode_select" name="location2">
+
+                                                                  </select>
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>TEHSIL ID <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <select class="custom-select form-control" id="providertehsil_tehsil_id_select" name="location2">
+
+                                                                  </select>
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddProviderTehsilMapping" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+                                              </form>
+                                              <section class="extended">
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="providertehsilmapping_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+          </section>
+        <section id="employeepjp_main_form" class="main-content hide_block">
+              <div class="content-wrapper">
+                  <div class="container-fluid"><div class="row">
+                      <div class="col-sm-12">
+                          <h2 class="content-header">Employee PJP Mapping</h2>
+                      </div>
+                  </div>
+                      <!-- Input Validation start -->
+                      <section class="input-validation">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <div class="card-block">
+                                              <form class="form-horizontal" novalidate="">
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="form-group">
+                                                              <h5>PJP CODE <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <input id="inpEmployeePJPPJPCode" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <h5>Employee Position Code <span class="required">*</span></h5>
+                                                              <div class="controls">
+                                                                  <select class="custom-select form-control" id="employeepjp_position_code_select" name="location2">
+
+                                                                  </select>
+                                                                  <div class="help-block"></div></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="col-lg-6 col-md-12">
+                                                          <div class="block-button">
+                                                              <a id="btnAddEmployeePJP" class="btn btn-success btn-lg btn-block">Add</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+                                              </form>
+                                              <section class="extended">
+                                                  <div class="row">
+                                                      <div class="col-sm-12">
+                                                          <div class="card">
+                                                              <div class="card-header">
+                                                                  <div class="card-title-wrap bar-success">
+                                                                      <h4 class="card-title">Data Entered</h4>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="card-body">
+                                                                  <div id="employeepjp_div_content" class="card-block">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </section>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                      </section>
+
+                      <!-- Input Validation end -->
+                  </div>
+
+              </div>
+          </section>
+        <section id="employeepositionteam_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Employee TEAM Mapping</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>TEAM_ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeepositionteam_team_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>POSITION_ID<span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeepositionteam_position_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddEmployeeTeamMapping" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="employeepositionteam_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="employeepositionteamregion_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Employee TEAM Region</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>TEAMREGION_ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeepositionteamregion_teamregion_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>POSITION_ID<span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeepositionteamregion_position_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddEmployeePositionTeamRegion" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="employeepositionteamregion_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="employeedepot_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Employee Depot Region</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>DEPOT_CODE <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeedepot_depot_code_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>POSITION_CODE<span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeedepot_position_code_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddEmployeeDepot" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="employeedepot_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="employeezonemapping_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Employee Zone Mapping</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>ZONE_ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeezonemapping_zone_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>POSITION_ID<span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeezonemapping_position_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddEmployeeZoneMapping" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="employeezonemapping_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="employeeidpositionidmapping_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Employee Position Mapping</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>EMPLOYEE_ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="employeeidpositionidmapping_employee_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>POSITION_ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <input id="inpPOSITION_ID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddEmployeeIDPositionIDMapping" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="employeeidpositionidmapping_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="districtprovince_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">District Province Mapping</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>DIST_ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="districtprovince_dist_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>PROVINCE_ID<span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="districtprovince_province_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddDistrictProvince" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="districtprovince_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="districtregionmapping_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">District Region Mapping</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>DIST_ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="districtregionmapping_dist_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>REGION_ID<span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="districtregionmapping_region_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddDistrictRegionMapping" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="districtregionmapping_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
+          </div>
+        </section>
+        <section id="districttehsil_main_form" class="main-content hide_block">
+          <div class="content-wrapper">
+            <div class="container-fluid"><div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">District Tehsil Mapping</h2>
+              </div>
+            </div>
+              <!-- Input Validation start -->
+              <section class="input-validation">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <form class="form-horizontal" novalidate="">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                  <h5>DIST_ID <span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="districttehsil_dist_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                                <div class="form-group">
+                                  <h5>REGION_ID<span class="required">*</span></h5>
+                                  <div class="controls">
+                                    <select class="custom-select form-control" id="districttehsil_tehsil_id_select" name="location2">
+
+                                    </select>
+                                    <div class="help-block"></div></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-12">
+                                <div class="block-button">
+                                  <a id="btnAddDistrictTehsil" class="btn btn-success btn-lg btn-block">Add</a>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                          <section class="extended">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="card">
+                                  <div class="card-header">
+                                    <div class="card-title-wrap bar-success">
+                                      <h4 class="card-title">Data Entered</h4>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div id="districttehsil_div_content" class="card-block">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+              <!-- Input Validation end -->
+            </div>
+
           </div>
         </section>
       </div>
@@ -445,6 +2557,7 @@
         }
     </script>
 
+    <script src="../assets/js/admin_main_page_generic.js"></script>
     <script src="../assets/js/admin_main_page.js"></script>
   </body>
 </html>

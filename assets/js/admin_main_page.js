@@ -1,24 +1,36 @@
 $(document).ready(function(){
-
-    $('.menu-item').click(function(){
-        $(".menu-item").parent().removeClass("active");
-        $(this).parent().addClass("active");
+    $('#btnAddChannel').click(function(){
+        var tablename = $("#channel_menu").attr("data-tablename");
+        var primarykeycolumn = $("#channel_menu").attr("data-primarykeycolumn");
+        addChannel(tablename,primarykeycolumn);
     });
 
-    $('#channel_master_menu').click(function(){
-        show_hide_section_tab("#channel_master");
-    });
-    $('#department_master_menu').click(function(){
-        show_hide_section_tab("#department_master");
-    });
 
 
 });
 
-function show_hide_section_tab($class_name) {
-    $(".main-content").removeClass("active_block");
-    $(".main-content").addClass("hide_block");
 
-    $($class_name).removeClass("hide_block");
-    $($class_name).addClass("active_block");
+
+function addChannel(tablename, primarykey){
+    var url= AllConstant.baseURL + "/addChannel";
+    var id = $('#inpChannelID').val();
+    var name = $('#inpChannelName').val();
+    $.ajax({
+        type: "GET",
+        url: url,
+        data:{id:id, name:name},
+        contentType: "application/json",
+        dataType: "text",
+        success: function (data) {
+            var resp = JSON.parse(data);
+
+            if(resp.status === "200"){
+                getData(tablename,primarykey);
+            }
+
+        },
+        error: function (data) {
+            return "failed";
+        }
+    });
 }
