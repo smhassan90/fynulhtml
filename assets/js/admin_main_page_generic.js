@@ -3,11 +3,49 @@ const AllConstant = {
     baseURL: "http://172.16.16.192:8080"
 };
 */
+
 const AllConstant = {
     baseURL: "http://192.168.0.52:8080/fs"
 };
 
+
 $(document).ready(function(){
+    $('.btnAddUpdate').click(function(){
+        var urlAddButton= AllConstant.baseURL + "/btnAddAdminPanel";
+        var tablename = $(this).attr("data-tablename");
+        var columns = $(this).attr("data-columns");
+        var primarykey = $(this).attr("data-primarykeycolumn");
+
+        var columnJsonArr = columns.split('*');
+
+        var json = {};
+        var preJson = {};
+        for(var i =0; i<columnJsonArr.length;i++){
+            preJson[columnJsonArr[i]] = $('#inp'+tablename+columnJsonArr[i]).val();
+        }
+        json = JSON.stringify(preJson);
+        var dataJSON = {"tablename":tablename,"data":json};
+
+        $.ajax({
+            type: "GET",
+            url: urlAddButton,
+            contentType: "application/json",
+            data:dataJSON,
+            dataType: "text",
+            success: function (data) {
+                var deleteResponse = JSON.parse(data);
+                if(deleteResponse.status==="200"){
+                    getData(tablename,primarykey);
+                }else{
+                    alert("Something went wrong while deleting!");
+                }
+            },
+            error: function (data) {
+                alert("Something went wrong while deleting!");
+            }
+        });
+
+    });
 
     $('.menu-item').click(function(){
         $(".menu-item").parent().removeClass("active");
@@ -224,7 +262,7 @@ function getDropdownData(tablename, primarykeycolumn, dropdown1, joiningtablenam
 }
 
 function getSelectSelectorID(tablename, dropdown1) {
-    var selector = "#";
+    var selector = ".";
     selector += tablename +"_"+dropdown1+"_select";
     selector = selector.toLowerCase();
     return selector;
