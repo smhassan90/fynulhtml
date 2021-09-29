@@ -139,12 +139,12 @@ function generateTable(tableData, primarykeyColumn, tablename){
         var tableHeader = tableData;
         var id = "";
         if(tableData.length>0){
-            tableHTML = "<table class=\"table table-responsive-md text-center\">\n" +
+            tableHTML = "<table class=\"table table-striped table-bordered zero-configuration dataTable\" id=\"\" role=\"grid\" aria-describedby=\"DataTables_Table_0_info\">\n" +
                 "                                        <thead>\n" +
-                "                                        <tr>\n";
+                "                                        <tr role=\"row\">\n";
             $.each(tableHeader, function(key, value){
                 $.each(value, function(key, value){
-                    tableHTML+= "<th class=\"sorting\">"+key+"</th>";
+                    tableHTML+= "<th class=\"sorting\" tabindex=\"0\" aria-controls=\"\" rowspan=\"1\" colspan=\"1\" aria-label=\"Name: activate to sort column ascending\" style=\"width: 171.875px;\" aria-sort=\"descending\">"+key+"</th>";
                 });
                 return false;
             });
