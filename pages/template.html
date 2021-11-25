@@ -27,6 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../app-assets/css/app.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css/templatestyle.css">
 
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/sweetalert2.min.css">
+
 </head>
 <body data-col="2-columns" class=" 2-columns ">
 <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -90,7 +92,15 @@
                     <li class="has-sub nav-item"><a href="#"><i class="icon-magnet"></i><span data-i18n="" class="menu-title">Mapping Upload</span></a>
                         <ul class="menu-content">
                             </li>
-                            <li><a class="menu-item">Tehsil SNDPOP mapping</a>
+                            <li><a id="TehsilSNDPOP_menu" data-tablename="TehsilSNDPOP" data-primarykeycolumn="SNDPOP_ID"
+                                   data-dropdown1="TEHSIL_ID" data-joiningtablename1 = "TehsilMaster" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                                   class="mappingtable menu-item">Tehsil SNDPOP mapping</a>
+                            </li>
+                            <li><a id="DepotSectionToPosition_menu" data-tablename="DepotSectionToPosition" data-primarykeycolumn="id"
+                                   class="menu-item">Depot Section-Position</a>
+                            </li>
+                            <li><a id="DepotTerritoryToPosition_menu" data-tablename="DepotTerritoryToPosition" data-primarykeycolumn="ID"
+                                   class="menu-item">Depot Territory-Position</a>
                             </li>
                             <li><a id="territoryemployeemapping_menu" data-tablename="TerritoryEmployeeMapping" data-primarykeycolumn="EMP_ID"
                                    data-dropdown1="territoryCode" data-joiningtablename1 = "TerritoryMaster" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
@@ -104,8 +114,7 @@
                             <li><a id="teamregion_menu" data-tablename="TeamRegion" data-primarykeycolumn="ID" class="menu-item">Team Region Mapping</a>
                             </li>
                             <li><a  id="providertehsil_menu" data-tablename="ProviderTehsil" class="mappingtable menu-item" data-primarykeycolumn="PROVIDERCODE"
-                                    data-dropdown1="PROVIDERCODE" data-joiningtablename1 = "Providers" data-joiningcolumnname1="code" data-joiningcolumnvalue1 = "name"
-                                    data-dropdown2="TEHSIL_ID" data-joiningtablename2 = "TehsilMaster" data-joiningcolumnname2="ID" data-joiningcolumnvalue2 = "NAME"
+                                    data-dropdown1="TEHSIL_ID" data-joiningtablename1 = "TehsilMaster" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
                             >Provider Tehsil Mapping</a>
                             </li>
                             <li><a  class="menu-item">Employee Customer Mapping</a>
@@ -130,7 +139,9 @@
                                    data-dropdown2="POSITION_ID" data-joiningtablename2 = "EmployeeIDPositionIDMapping" data-joiningcolumnname2="POSITION_ID" data-joiningcolumnvalue2 = "EMPLOYEE_ID"
                             >Employee Team Region Mapping</a>
                             </li>
-                            <li><a class="menu-item">Employee Provider Mapping</a>
+                            <li><a id="employeetagging_menu" data-tablename="EmployeeTagging" class="mappingtable menu-item" data-primarykeycolumn="ID"
+                                   data-dropdown1="DESIGNATION_ID" data-joiningtablename1 = "Designation" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                            >Employee Provider Mapping</a>
                             </li>
                             <li><a id="employeezonemapping_menu" data-tablename="EmployeeZoneMapping" class="mappingtable menu-item"
                                    data-primarykeycolumn="POSITION_ID"
@@ -1319,6 +1330,82 @@
             </div>
 
         </section>
+
+        <section id="tehsilsndpop_main_form" class="main-content hide_block">
+            <div class="content-wrapper">
+                <div class="container-fluid"><div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="content-header">SNDPOP - Tehsil mapping</h2>
+                    </div>
+                </div>
+                    <!-- Input Validation start -->
+                    <section class="input-validation">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <form class="form-horizontal" novalidate="">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="form-group">
+                                                            <h5>SNDPOP_ID <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpTehsilSNDPOPSNDPOP_ID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>TEHSIL ID <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <select class="custom-select form-control tehsilsndpop_tehsil_id_select" id="inpTehsilSNDPOPTEHSIL_ID" name="location2">
+
+                                                                </select>
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="block-button">
+                                                            <a id="btnAddTehsilSNDPOP" data-tablename="TehsilSNDPOP" data-columns="SNDPOP_ID*TEHSIL_ID" data-primarykeycolumn="SNDPOP_ID" class="btnAddUpdate btn btn-success btn-lg btn-block">Add/Update</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <section id="">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <div class="card-title-wrap bar-success">
+                                                                    <h4 class="card-title">Data Entered</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="tehsilsndpop_div_content" class="card-block">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Input Validation end -->
+                </div>
+
+            </div>
+
+        </section>
         <section id="territoryemployeemapping_main_form" class="main-content hide_block">
             <div class="content-wrapper">
                 <div class="container-fluid"><div class="row">
@@ -1585,17 +1672,15 @@
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-12">
                                                         <div class="form-group">
-                                                            <h5>ProviderCode <span class="required">*</span></h5>
+                                                            <h5>PROVIDERCODE <span class="required">*</span></h5>
                                                             <div class="controls">
-                                                                <select class="custom-select form-control providertehsil_providercode_select"  name="location2">
-
-                                                                </select>
+                                                                <input id="inpProviderTehsilPROVIDERCODE" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
                                                                 <div class="help-block"></div></div>
                                                         </div>
                                                         <div class="form-group">
                                                             <h5>TEHSIL ID <span class="required">*</span></h5>
                                                             <div class="controls">
-                                                                <select class="custom-select form-control providertehsil_tehsil_id_select"  name="location2">
+                                                                <select class="custom-select form-control providertehsil_tehsil_id_select" id="inpProviderTehsilTEHSIL_ID" name="location2">
 
                                                                 </select>
                                                                 <div class="help-block"></div></div>
@@ -1605,7 +1690,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-12">
                                                         <div class="block-button">
-                                                            <a id="btnAddProviderTehsilMapping" class="btn btn-success btn-lg btn-block">Add</a>
+                                                            <a id="btnAddProviderTehsil" data-tablename="ProviderTehsil" data-columns="PROVIDERCODE*TEHSIL_ID" data-primarykeycolumn="PROVIDERCODE" class="btnAddUpdate btn btn-success btn-lg btn-block">Add</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1621,7 +1706,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="card-body">
-                                                                <div id="providertehsilmapping_div_content" class="card-block">
+                                                                <div id="providertehsil_div_content" class="card-block">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1816,7 +1901,7 @@
                                                         <div class="form-group">
                                                             <h5>TEAMREGION_ID <span class="required">*</span></h5>
                                                             <div class="controls">
-                                                                <select class="custom-select form-control employeepositionteamregion_teamregion_id_select" id="inpEmployeeTeamRegionMappingTEAMREGION_ID" name="location2">
+                                                                <select class="custom-select form-control employeepositionteamregion_teamregion_id_select" id="inpEmployeePositionTeamRegionTEAMREGION_ID" name="location2">
 
                                                                 </select>
                                                                 <div class="help-block"></div></div>
@@ -1824,7 +1909,7 @@
                                                         <div class="form-group">
                                                             <h5>POSITION_ID<span class="required">*</span></h5>
                                                             <div class="controls">
-                                                                <select class="custom-select form-control employeepositionteamregion_position_id_select" id="inpEmployeeTeamRegionMappingPOSITION_ID" name="location2">
+                                                                <select class="custom-select form-control employeepositionteamregion_position_id_select" id="inpEmployeePositionTeamRegionPOSITION_ID" name="location2">
 
                                                                 </select>
                                                                 <div class="help-block"></div></div>
@@ -1834,7 +1919,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-12">
                                                         <div class="block-button">
-                                                            <a id="btnAddEmployeePositionTeamRegion" data-tablename="EmployeeTeamRegionMapping" data-columns="POSITION_ID*TEAMREGION_ID" data-primarykeycolumn="POSITION_ID" class="btnAddUpdate btn btn-success btn-lg btn-block">Add</a>
+                                                            <a id="btnAddEmployeePositionTeamRegion" data-tablename="EmployeePositionTeamRegion" data-columns="POSITION_ID*TEAMREGION_ID" data-primarykeycolumn="POSITION_ID" class="btnAddUpdate btn btn-success btn-lg btn-block">Add</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2339,6 +2424,233 @@
 
             </div>
         </section>
+
+        <section id="depotsectiontoposition_main_form" class="main-content hide_block">
+            <div class="content-wrapper">
+                <div class="container-fluid"><div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="content-header">Depot Section to Position Mapping</h2>
+                    </div>
+                </div>
+                    <!-- Input Validation start -->
+                    <section class="input-validation">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <form class="form-horizontal" novalidate="">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="form-group">
+                                                            <h5>NewSectionCode <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpDepotSectionToPositionNewSectionCode" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>PositionCode <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpDepotSectionToPositionPositionCode" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="block-button">
+                                                            <a id="btnAddDepotSectionToPosition" data-tablename="DepotSectionToPosition" data-columns="PositionCode*NewSectionCode" data-primarykeycolumn="id" class="btnAddUpdate btn btn-success btn-lg btn-block">Add</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <section class="extended">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <div class="card-title-wrap bar-success">
+                                                                    <h4 class="card-title">Data Entered</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="depotsectiontoposition_div_content" class="card-block">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Input Validation end -->
+                </div>
+
+            </div>
+        </section>
+        <section id="depotterritorytoposition_main_form" class="main-content hide_block">
+            <div class="content-wrapper">
+                <div class="container-fluid"><div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="content-header">Depot Territory to Position Mapping</h2>
+                    </div>
+                </div>
+                    <!-- Input Validation start -->
+                    <section class="input-validation">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <form class="form-horizontal" novalidate="">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="form-group">
+                                                            <h5>position_code <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpDepotTerritoryToPositionposition_code" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>depot_territory <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpDepotTerritoryToPositiondepot_territory" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="block-button">
+                                                            <a id="btnAddDepotTerritoryToPosition" data-tablename="DepotTerritoryToPosition" data-columns="depot_territory*position_code" data-primarykeycolumn="id" class="btnAddUpdate btn btn-success btn-lg btn-block">Add</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <section class="extended">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <div class="card-title-wrap bar-success">
+                                                                    <h4 class="card-title">Data Entered</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="depotterritorytoposition_div_content" class="card-block">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Input Validation end -->
+                </div>
+
+            </div>
+        </section>
+
+        <section id="employeetagging_main_form" class="main-content hide_block">
+            <div class="content-wrapper">
+                <div class="container-fluid"><div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="content-header">Employee - Provider Tagging</h2>
+                    </div>
+                </div>
+                    <!-- Input Validation start -->
+                    <section class="input-validation">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <form class="form-horizontal" novalidate="">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="form-group">
+                                                            <h5>POSITION_ID <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpEmployeeTaggingPOSITION_ID" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>TAGGED_TO <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <input id="inpEmployeeTaggingTAGGED_TO" type="text" name="text" class="form-control" required="" data-validation-required-message="This field is required">
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <h5>Designation ID <span class="required">*</span></h5>
+                                                            <div class="controls">
+                                                                <select class="custom-select form-control employeetagging_designation_id_select"  id="inpEmployeeTaggingDESIGNATION_ID" name="location2"
+                                                                >
+
+                                                                </select>
+                                                                <div class="help-block"></div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="block-button">
+                                                            <a id="btnAddEmployeeTagging" data-tablename="EmployeeTagging" data-columns="POSITION_ID*DESIGNATION_ID*TAGGED_TO" data-primarykeycolumn="ID" class="btnAddUpdate btnAddUpdate btn btn-success btn-lg btn-block">Add</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <section class="extended">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <div class="card-title-wrap bar-success">
+                                                                    <h4 class="card-title">Data Entered</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="employeetagging_div_content" class="card-block">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Input Validation end -->
+                </div>
+
+            </div>
+        </section>
     </div>
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -2544,7 +2856,8 @@
         }
     }
 </script>
-
+<script src="../assets/js/common.js"></script>
+<script src="../app-assets/vendors/js/sweetalert2.min.js"></script>
 <script src="../assets/js/admin_main_page_generic.js"></script>
 <script src="../assets/js/admin_main_page.js"></script>
 <script src="app-assets/vendors/js/datatable/datatables.min.js"></script>

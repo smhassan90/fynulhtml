@@ -4,10 +4,6 @@ const AllConstant = {
 };
 */
 
-const AllConstant = {
-    baseURL: "http://192.168.0.52:8080/fs"
-};
-
 
 $(document).ready(function(){
     $('.btnAddUpdate').click(function(){
@@ -60,7 +56,10 @@ $(document).ready(function(){
         var selectorMainForm = getFormMainDivSelectorFromTableName(tablename);
 
         //Request to get Data for below table. In response it will populate table.
-        getData(tablename,primarykey);
+        if(tablename!=='performance' && tablename!=='dashboard'){
+            getData(tablename,primarykey);
+        }
+
 
         show_hide_section_tab(selectorMainForm);
 
@@ -80,24 +79,41 @@ $(document).ready(function(){
 
         //delete
         var url= AllConstant.baseURL + "/deleteAdminData";
-        $.ajax({
-            type: "GET",
-            url: url,
-            contentType: "application/json",
-            data:{tablename:tablename, id:id, primarykey:primarykey},
-            dataType: "text",
-            success: function (data) {
-                var deleteResponse = JSON.parse(data);
-                if(deleteResponse.status==="200"){
-                    getData(tablename,primarykey);
-                }else{
-                    alert("Something went wrong while deleting!");
-                }
-            },
-            error: function (data) {
-                alert("Something went wrong while deleting!");
+        swal({
+            title: 'Are you sure you want to delete?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#0CC27E',
+            cancelButtonColor: '#FF586B',
+            confirmButtonText: 'Yes, Delete it!',
+            cancelButtonText: "No, cancel"
+        }).then(function (isConfirm) {
+            if (isConfirm) {
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    contentType: "application/json",
+                    data:{tablename:tablename, id:id, primarykey:primarykey},
+                    dataType: "text",
+                    success: function (data) {
+                        var deleteResponse = JSON.parse(data);
+                        if(deleteResponse.status==="200"){
+                            getData(tablename,primarykey);
+                        }else{
+                            alert("Something went wrong while deleting!");
+                        }
+                    },
+                    error: function (data) {
+                        alert("Something went wrong while deleting!");
+                    }
+                });
             }
-        });
+        }).catch(swal.noop);
+
+
+
     });
 
 
