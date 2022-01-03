@@ -69,7 +69,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-faded">
         <div class="container-fluid">
-            <div class="navbar-header">
+            <div class="navbar-header" id="bio">
 
             </div>
             <div class="navbar-container">
@@ -92,7 +92,7 @@
                             <p class="d-none">User Settings</p></a>
                             <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-right">
                                 <div class="arrow_box_right">
-                                    <a href="javascript:;" class="dropdown-item"><i class="ft-power mr-2"></i><span>Logout</span></a>
+                                    <a href="javascript:;" class="dropdown-item btnLogout"><i class="ft-power mr-2"></i><span>Logout</span></a>
                                 </div>
                             </div>
                         </li>
@@ -209,8 +209,8 @@
                                                 <i class="icon-graph success font-large-2 float-left"></i>
                                             </div>
                                             <div class="media-body text-right">
-                                                <h3 id="YTD_SALE_NUMBER"></h3>
-                                                <span id="YTD_SALE_DETAIL"></span>
+                                                <h3 id="YTD_TP_VALUE"></h3>
+                                                <span id="YTD_TP_VALUE_DETAIL"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -226,8 +226,8 @@
                                                 <i class="icon-graph success font-large-2 float-left"></i>
                                             </div>
                                             <div class="media-body text-right">
-                                                <h3 id="MTD_PERC_NUMBER"></h3>
-                                                <span id="MTD_PERC_DETAIL"></span>
+                                                <h3 id="YTD_TP_TARGET"></h3>
+                                                <span id="YTD_TP_TARGET_DETAIL"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -243,14 +243,165 @@
                                                 <i class="icon-graph success font-large-2 float-left"></i>
                                             </div>
                                             <div class="media-body text-right">
-                                                <h3 id="YTD_CYP_NUMBER"></h3>
-                                                <span id="YTD_CYP_DETAIL"></span>
+                                                <h3 id="YTD_TP_PERC"></h3>
+                                                <span id="YTD_TP_PERC_DETAIL"></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="px-3 py-3">
+                                        <div class="media">
+                                            <div class="media-body text-left align-self-center">
+                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3 id="YTD_ACH_UCC"></h3>
+                                                <span id="YTD_ACH_UCC_DETAIL"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="px-3 py-3">
+                                        <div class="media">
+                                            <div class="media-body text-left align-self-center">
+                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3 id="MTD_TP_VALUE"></h3>
+                                                <span id="MTD_TP_VALUE_DETAIL"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="px-3 py-3">
+                                        <div class="media">
+                                            <div class="media-body text-left align-self-center">
+                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3 id="MTD_TP_TARGET"></h3>
+                                                <span id="MTD_TP_TARGET_DETAIL"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="px-3 py-3">
+                                        <div class="media">
+                                            <div class="media-body text-left align-self-center">
+                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3 id="MTD_TP_PERC"></h3>
+                                                <span id="MTD_TP_PERC_DETAIL"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="px-3 py-3">
+                                        <div class="media">
+                                            <div class="media-body text-left align-self-center">
+                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3 id="MTD_ACH_UCC"></h3>
+                                                <span id="MTD_ACH_UCC_DETAIL"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="px-3 py-3">
+                                        <div class="media">
+                                            <div class="media-body text-left align-self-center">
+                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3 id="MTD_AVERAGE_MONTHLY"></h3>
+                                                <span id="MTD_AVERAGE_MONTHLY_DETAIL"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="px-3 py-3">
+                                        <div class="media">
+                                            <div class="media-body text-left align-self-center">
+                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3 id="MTD_REQUIRED_MONTHLY"></h3>
+                                                <span id="MTD_REQUIRED_MONTHLY_DETAIL"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-block">
+                                    <table class="table table-hover table-xl mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th class="border-top-0">Name</th>
+                                            <th class="border-top-0">MTD Target</th>
+                                            <th class="border-top-0">MTD Value</th>
+                                            <th class="border-top-0">MTD %</th>
+                                            <th class="border-top-0">YTD Target</th>
+                                            <th class="border-top-0">YTD Value</th>
+                                            <th class="border-top-0">YTD %</th>
+                                            <th class="border-top-0">FYTarget</th>
+                                            <th class="border-top-0">Balance</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="SPOProgress">
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="row">
                         <div class="card">
@@ -483,6 +634,7 @@
 <script src="../assets/js/admin_main_page.js"></script>
 <script src="../assets/js/menu.js"></script>
 <script src="../app-assets/vendors/js/datatable/datatables.min.js"></script>
+<script src="../app-assets/vendors/js/datatable/pdfmake.min.js"></script>
 <script src="../app-assets/js/data-tables/datatable-basic.js"></script>
 
 
