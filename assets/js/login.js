@@ -2,7 +2,6 @@
 
 $(document).ready(function(){
     $('#btnLogin').click(function(){
-        swal("Good job!", "You clicked the button!", "success").done();
         var id = $('#inputID').val();
         var pass = $('#inputPass').val();
         var staffType = 3;

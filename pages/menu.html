@@ -28,7 +28,11 @@
     <link rel="stylesheet" type="text/css" href="../app-assets/css/templatestyle.css">
     <link rel="stylesheet" type="text/css" href="../assets/scss/common.scss">
     <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/chartist.min.css">
-
+<style>
+    .modalPerformanceDetail{
+        width:130% !important;
+    }
+</style>
 
 </head>
 <body data-col="2-columns" class=" 2-columns ">
@@ -43,7 +47,7 @@
         <div class="sidebar-content">
             <div class="nav-container">
                 <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-                    <li class="nav-item"><a href="#" id="dashboard_menu" data-tablename="dashboard" class="menu-item active"><i class="icon-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
+                    <li class="nav-item active"><a href="#" id="dashboard_menu" data-tablename="dashboard" class="menu-item "><i class="icon-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
 
                     </li>
                     <li class="nav-item"><a href="#" class="menu-item" id="performance_menu" data-tablename="performance"><i class="icon-magnet"></i><span data-i18n="" class="menu-title">Performance</span></a>
@@ -403,6 +407,9 @@
                         </div>
 
                     </div>
+
+
+
                     <div class="row">
                         <div class="card">
                             <canvas id="bar-chart-grouped" width="2000" height="1000"></canvas>
@@ -474,6 +481,51 @@
                                         <div class="base-timeline-info"><a href="#" class="text-uppercase text-warning">New</a><span class="d-block">Started New project with Jessie Lee.</span></div><small class="text-muted">2 Month ago</small>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade text-left" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                        <div class="modal-lg modal-dialog" role="document">
+                            <div class="modalPerformanceDetail modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="modalHeading"></h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div id="detailPerformanceModal" class="modal-body">
+                                    <div class="row">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="card-block">
+                                                    <table class="table table-hover table-xl mb-0">
+                                                        <thead>
+                                                        <tr>
+                                                            <th class="border-top-0">Name</th>
+                                                            <th class="border-top-0">MTD Target</th>
+                                                            <th class="border-top-0">MTD Value</th>
+                                                            <th class="border-top-0">MTD %</th>
+                                                            <th class="border-top-0">YTD Target</th>
+                                                            <th class="border-top-0">YTD Value</th>
+                                                            <th class="border-top-0">YTD %</th>
+                                                            <th class="border-top-0">FYTarget</th>
+                                                            <th class="border-top-0">Balance</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody class="SPOProgressSKUWise">
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -636,7 +688,7 @@
 <script src="../app-assets/vendors/js/datatable/datatables.min.js"></script>
 <script src="../app-assets/vendors/js/datatable/pdfmake.min.js"></script>
 <script src="../app-assets/js/data-tables/datatable-basic.js"></script>
-
+<script src="app-assets/js/components-modal.min.js"></script>
 
 </body>
 </html>

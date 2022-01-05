@@ -1,8 +1,11 @@
 $(document).ready(function(){
+
     var token = getCookie('token');
     if(token===null){
         self.location="adminPanelLogin.html";
     }
+    $("#dashboard_menu").trigger('click');
+
     var url = AllConstant.baseURL + "/getCYPBarChartData";
     $.ajax({
         type: "GET",
@@ -25,7 +28,8 @@ $(document).ready(function(){
         },
         error: function (data) {
 
-        }
+        },
+        timeout: 10000
     });
 
     function setBio(token) {
@@ -41,7 +45,8 @@ $(document).ready(function(){
             },
             error: function (data) {
 
-            }
+            },
+            timeout: 10000
         });
     }
 
@@ -112,9 +117,56 @@ $(document).ready(function(){
             },
             error: function (data) {
 
-            }
+            },
+            timeout: 10000
         });
     });
+
+    $(document).on("click", ".person", function(){
+        var positioncode = $(this).attr("data-positioncode");
+        var url = AllConstant.baseURL + "/getSPOProgressProductWise";
+
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {token:token, position_code:positioncode},
+            contentType: "application/json",
+            dataType: "text",
+            success: function (data) {
+                var response = JSON.parse(data);
+                var html="";
+                if(response.length>0){
+
+                    for(var i=0 ; i<response.length ; i++){
+
+                        html += '<tr data-positionCode="'+response[i].position_code+'" >\n' +
+                            '                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].mtdTarget+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].mtdAch+'</td>\n' +
+                            '                                                                    <td class="text-truncate">'+response[i].mtdPerc+'%</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].ytdTarget+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].ytdAch+'</td>\n' +
+                            '                                                                    <td class="text-truncate">'+response[i].ytdPerc+'%</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].FYTarget+'</td>\n' +
+                            '                                                                    <td class="text-truncate">'+response[i].balance+'</td>\n' +
+                            '                                                                </tr>';
+                    }
+
+                }else{
+                    html+="<tr><p>No Sale found</p></tr>";
+                }
+                $('.modal').modal('show');
+                $('.SPOProgressSKUWise').html(html);
+                //var table = $('.table').DataTable();
+               // table.columns.adjust();
+            },
+            error: function (data) {
+
+            },
+            timeout: 10000
+        });
+    });
+
 });
 
 
@@ -140,7 +192,8 @@ function setDropDown(type){
         },
         error: function (data) {
 
-        }
+        },
+        timeout: 10000
     });
 }
 
@@ -182,7 +235,8 @@ function setCard(api, type){
         },
         error: function (data) {
 
-        }
+        },
+        timeout: 10000
     });
 
     $('.btnLogout').click(function(){
@@ -208,15 +262,15 @@ function setSubOrdinatePerformanceTable(token){
 
                     for(var i=0 ; i<response.length ; i++){
 
-                        html += '<tr>\n' +
+                        html += '<tr data-positionCode="'+response[i].position_code+'" class="person">\n' +
                             '                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
-                            '                                                                    <td class="text-truncate">RS '+response[i].mtdTarget+'</td>\n' +
-                            '                                                                    <td class="text-truncate">RS '+response[i].mtdAch+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].mtdTarget+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].mtdAch+'</td>\n' +
                             '                                                                    <td class="text-truncate">'+response[i].mtdPerc+'%</td>\n' +
-                            '                                                                    <td class="text-truncate">RS '+response[i].ytdTarget+'</td>\n' +
-                            '                                                                    <td class="text-truncate">RS '+response[i].ytdAch+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].ytdTarget+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].ytdAch+'</td>\n' +
                             '                                                                    <td class="text-truncate">'+response[i].ytdPerc+'%</td>\n' +
-                            '                                                                    <td class="text-truncate">RS '+response[i].FYTarget+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].FYTarget+'</td>\n' +
                             '                                                                    <td class="text-truncate">'+response[i].balance+'</td>\n' +
                             '                                                                </tr>';
                     }
@@ -230,8 +284,10 @@ function setSubOrdinatePerformanceTable(token){
         },
         error: function (data) {
 
-        }
+        },
+        timeout: 10000
     });
 }
+
 
 
