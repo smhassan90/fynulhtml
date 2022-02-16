@@ -9552,7 +9552,7 @@ a.bg-base:hover, a.bg-base:focus, button.bg-base:hover, button.bg-base:focus {
 }
 
 .font-weight-bold {
-  font-weight : 700 !important;
+  font-weight : 400 !important;
 }
 
 .font-italic {

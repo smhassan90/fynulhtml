@@ -2,53 +2,13 @@ $(document).ready(function(){
 
     var token = getCookie('token');
     if(token===null){
-        self.location="adminPanelLogin.html";
+        self.location="index.html";
     }
+    loginLog(token);
     $("#dashboard_menu").trigger('click');
-
-    var url = AllConstant.baseURL + "/getCYPBarChartData";
-    $.ajax({
-        type: "GET",
-        url: url,
-        data: {token:token },
-        contentType: "application/json",
-        dataType: "text",
-        success: function (data) {
-            var response = JSON.parse(data);
-            new Chart($("#bar-chart-grouped"), {
-                type: 'bar',
-                data: response,
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Comparison'
-                    }
-                }
-            });
-        },
-        error: function (data) {
-
-        },
-        timeout: 10000
-    });
-
-    function setBio(token) {
-        var url = AllConstant.baseURL + "/getBIO";
-        $.ajax({
-            type: "GET",
-            url: url,
-            data: {token:token },
-            contentType: "application/json",
-            dataType: "text",
-            success: function (data) {
-                $('#bio').html(data);
-            },
-            error: function (data) {
-
-            },
-            timeout: 10000
-        });
-    }
+    drawBarChart(token, "groupon", "SKU wise Sale comparison on months");
+    drawBarChart(token, "ucc", "UCC comparison on months");
+    drawBarChart(token, "productivity", "Sale achieved comparison months");
 
     setBio(token);
 
@@ -63,10 +23,13 @@ $(document).ready(function(){
     setCard("getUCC", "MTD");
 
     setCard("getAverageAndRequiredMonthly", "YTD");
+    setLastTransactionDate();
 
     setSubOrdinatePerformanceTable(token);
 
+    setUCCTable(token);
     $('#btnShowDetail').click(function(){
+
         var month = $('.performance_reportingmonths_select').val();
         var token = getCookie('token');
         var positionCode = $('.performance_partners_select').val();
@@ -92,7 +55,7 @@ $(document).ready(function(){
                                 '                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o '+classStatus+' font-medium-1 mr-1"></i> '+statusText+'</td>\n' +
                                 '                                                                    <td class="text-truncate">\n' +
                                 '                                                                        <span class="avatar avatar-xs">\n' +
-                                '                                                                            <img class="box-shadow-2" src="../app-assets/img/portrait/small/'+img+'.png" alt="avatar">\n' +
+                                '                                                                            <img class="box-shadow-2" src="./app-assets/img/portrait/small/'+img+'.png" alt="avatar">\n' +
                                 '                                                                        </span>\n' +
                                 '                                                                        <span>'+response[i].groupOn+'</span>\n' +
                                 '                                                                    </td>\n' +
@@ -121,6 +84,11 @@ $(document).ready(function(){
             timeout: 10000
         });
     });
+    $('#btnShowUCC').click(function(){
+        $('.ucc_table').html("");
+        $('.shopCount').html("0");
+        createUCCTable(token);
+    });
 
     $(document).on("click", ".person", function(){
         var positioncode = $(this).attr("data-positioncode");
@@ -135,10 +103,13 @@ $(document).ready(function(){
             success: function (data) {
                 var response = JSON.parse(data);
                 var html="";
+                var name = "";
                 if(response.length>0){
 
                     for(var i=0 ; i<response.length ; i++){
-
+                        if(response[i].personName!==null && response[i].personName!=='undefined' && response[i].personName!==''){
+                            name = response[i].personName ;
+                        }
                         html += '<tr data-positionCode="'+response[i].position_code+'" >\n' +
                             '                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
                             '                                                                    <td class="text-truncate"> '+response[i].mtdTarget+'</td>\n' +
@@ -149,6 +120,8 @@ $(document).ready(function(){
                             '                                                                    <td class="text-truncate">'+response[i].ytdPerc+'%</td>\n' +
                             '                                                                    <td class="text-truncate"> '+response[i].FYTarget+'</td>\n' +
                             '                                                                    <td class="text-truncate">'+response[i].balance+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].CMA+'</td>\n' +
+                            '                                                                    <td class="text-truncate">'+response[i].RMA+'</td>\n' +
                             '                                                                </tr>';
                     }
 
@@ -157,8 +130,9 @@ $(document).ready(function(){
                 }
                 $('.modal').modal('show');
                 $('.SPOProgressSKUWise').html(html);
+                $('#modalHeading').html(name);
                 //var table = $('.table').DataTable();
-               // table.columns.adjust();
+                // table.columns.adjust();
             },
             error: function (data) {
 
@@ -241,7 +215,7 @@ function setCard(api, type){
 
     $('.btnLogout').click(function(){
         clearCookies();
-        self.location="adminPanelLogin.html";
+        self.location="index.html";
     });
 
 
@@ -258,29 +232,125 @@ function setSubOrdinatePerformanceTable(token){
         success: function (data) {
             var response = JSON.parse(data);
             var html="";
-                if(response.length>0){
+            if(response.length>0){
 
-                    for(var i=0 ; i<response.length ; i++){
-
-                        html += '<tr data-positionCode="'+response[i].position_code+'" class="person">\n' +
-                            '                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].mtdTarget+'</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].mtdAch+'</td>\n' +
-                            '                                                                    <td class="text-truncate">'+response[i].mtdPerc+'%</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].ytdTarget+'</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].ytdAch+'</td>\n' +
-                            '                                                                    <td class="text-truncate">'+response[i].ytdPerc+'%</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].FYTarget+'</td>\n' +
-                            '                                                                    <td class="text-truncate">'+response[i].balance+'</td>\n' +
-                            '                                                                </tr>';
+                for(var i=0 ; i<response.length ; i++){
+                    if(response[i].FYTarget == "0" && response[i].ytdAch == "0"){
+                        continue;
+                    }
+                    if(response[i].position_code.includes("ASM")){
+                        html +='<tr data-positionCode="'+response[i].position_code+'" class="person font-weight-bold">\n';
+                    }else{
+                        html += '<tr data-positionCode="'+response[i].position_code+'" class="person">\n';
                     }
 
-                }else{
-                    html+="<tr><p>No Sale found</p></tr>";
+
+                    html+='                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].mtdTarget+'</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].mtdAch+'</td>\n' +
+                        '                                                                    <td class="text-truncate">'+response[i].mtdPerc+'%</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].ytdTarget+'</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].ytdAch+'</td>\n' +
+                        '                                                                    <td class="text-truncate">'+response[i].ytdPerc+'%</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].FYTarget+'</td>\n' +
+                        '                                                                    <td class="text-truncate">'+response[i].balance+'</td>\n' +
+                        '                                                                    <td class="text-truncate">'+response[i].CMA+'</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].RMA+'</td>\n' +
+
+                        '                                                                </tr>';
                 }
 
-                $('.SPOProgress').html(html);
+            }else{
+                html+="<tr><p>No Sale found</p></tr>";
+            }
 
+            $('.SPOProgress').html(html);
+
+        },
+        error: function (data) {
+
+        },
+        timeout: 10000
+    });
+}
+function createUCCTable(token){
+    var url = AllConstant.baseURL + "/getUCCTable";
+
+    var reportingMonth = $('#ucc_month_select').val();
+    var token = getCookie('token');
+    var positionCode = $('#ucc_partners_select').val();
+    var productGroup = $('#ucc_products_select').val();
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: { token:token, positionCode:positionCode, productGroup:productGroup, reportingMonth:reportingMonth},
+        contentType: "application/json",
+        dataType: "text",
+        success: function (data) {
+            var response = JSON.parse(data);
+            var html="";
+            $('.shopCount').html(response.length);
+            if(response.length>0){
+
+                for(var i=0 ; i<response.length ; i++){
+
+                    html += '<tr class="ucc_row">\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].customerNumber+'</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].customerName+'</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].sectionCode+'</td>\n' +
+                        '                                                                    <td class="text-truncate">'+response[i].sectionName+'</td>\n' +
+                        '<td class="text-truncate">RS '+response[i].tpValue+'</td>' +
+
+                        '                                                                </tr>';
+                }
+
+            }else{
+                html+="<tr><p>No UCC found</p></tr>";
+            }
+
+            $('.ucc_table').html(html);
+
+        },
+        error: function (data) {
+
+        },
+        timeout: 10000
+    });
+
+}
+function setLastTransactionDate(){
+    var url = AllConstant.baseURL + "/getLastTransactionDate";
+    $.ajax({
+        type: "GET",
+        url: url,
+        contentType: "application/json",
+        dataType: "text",
+        success: function (data) {
+            $('#last_transaction_date').html("Secondary sales till : "+data);
+        },
+        error: function (data) {
+
+        },
+        timeout: 10000
+    });
+}
+function setBio(token) {
+    var url = AllConstant.baseURL + "/getBIO";
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: {token:token },
+        contentType: "application/json",
+        dataType: "text",
+        success: function (data) {
+            if(data.includes("|")){
+                if(data.split("|")[0].trim()==="null"){
+                    clearCookies();
+                    self.location="index.html";
+                }
+            }
+            $('#bio').html(data);
         },
         error: function (data) {
 
@@ -290,4 +360,90 @@ function setSubOrdinatePerformanceTable(token){
 }
 
 
+function drawBarChart(token, type, title){
+    var url = AllConstant.baseURL + "/getCYPBarChartData";
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: {token:token , type:type },
+        contentType: "application/json",
+        dataType: "text",
+        success: function (data) {
+            var response = JSON.parse(data);
+            new Chart($("#barchart_"+type), {
+                type: 'bar',
+                data: response,
+                options: {
+                    title: {
+                        display: true,
+                        text: title
+                    }
+                }
+            });
+        },
+        error: function (data) {
+        },
+        timeout: 10000
+    });
+}
+function setUCCTable(token){
+    var url = AllConstant.baseURL + "/UCCUniverseAchievement";
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: {token:token },
+        contentType: "application/json",
+        dataType: "text",
+        success: function (data) {
+            var response = JSON.parse(data);
+            var html="";
+            if(response.length>0){
+
+                for(var i=0 ; i<response.length ; i++){
+                    if(response[i].totalCustomers == "0" && response[i].ucc == "0"){
+                        continue;
+                    }
+                    if(response[i].position_code.includes("ASM")){
+                        html +='<tr data-positionCode="'+response[i].position_code+'" class="person font-weight-bold">\n';
+                    }else{
+                        html += '<tr data-positionCode="'+response[i].position_code+'" class="person">\n';
+                    }
+
+
+                    html+='                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].totalCustomers+'</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].ucc+'</td>\n' +
+                        '                                                                    <td class="text-truncate">'+response[i].coverage+'%</td>\n' +
+
+                        '                                                                </tr>';
+                }
+
+            }else{
+                html+="<tr><p>No UCC found</p></tr>";
+            }
+
+            $('.ucc_universe_detail').html(html);
+
+        },
+        error: function (data) {
+        },
+        timeout: 10000
+    });
+}
+
+function loginLog(token){
+    var url = AllConstant.baseURL + "/loginLog";
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: {token:token },
+        contentType: "application/json",
+        dataType: "text",
+        success: function (data) {
+        },
+        error: function (data) {
+        },
+        timeout: 10000
+    });
+}
 

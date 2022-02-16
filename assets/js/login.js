@@ -1,6 +1,10 @@
 
 
 $(document).ready(function(){
+    var token = getCookie('token');
+    if(token!==null || token === '' || token === 'undefined'){
+        self.location="menu.html";
+    }
     $('#btnLogin').click(function(){
         var id = $('#inputID').val();
         var pass = $('#inputPass').val();
@@ -27,7 +31,12 @@ $(document).ready(function(){
                             setCookie('token', loginResponse.token,365);
                             setCookie('positionCode', loginResponse.positionCode,365);
                             swal("Successfully!", loginResponse.employee.NAME+", You are logged in", "success").done();
-                            self.location="menu.html";
+                            if(loginResponse.designation_id){
+                                self.location="menuExecutive.html";
+                            }else{
+                                self.location="menu.html";
+                            }
+
                         }else if(loginResponse.statusCode === "404"){
                             swal("Error!", "Invalid username or password!", "error").done();
                         }
