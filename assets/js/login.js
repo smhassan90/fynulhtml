@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     var token = getCookie('token');
-    if(token!==null || token === '' || token === 'undefined'){
+    if(token!==null && token !== '' && token !== 'undefined'){
         self.location="menu.html";
     }
     $('#btnLogin').click(function(){
@@ -12,10 +12,6 @@ $(document).ready(function(){
         var url = AllConstant.baseURL + "/loginServerAttempt";
 
        // var encrypted = CryptoJS.AES.encrypt(AllConstant.baseString, pass).toString();
-
-
-        let headers = new Headers();
-        headers.append('Access-Control-Allow-Origin', '*');
 
         if(id !== "" && pass !== "" ){
             $.ajax({

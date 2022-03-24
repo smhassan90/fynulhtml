@@ -4,7 +4,7 @@ $(document).ready(function(){
     if(token===null){
         self.location="index.html";
     }
-    loginLog(token);
+  //  loginLog(token);
     $("#dashboard_menu").trigger('click');
     drawBarChart(token, "groupon", "SKU wise Sale comparison on months");
     drawBarChart(token, "ucc", "UCC comparison on months");
@@ -81,13 +81,46 @@ $(document).ready(function(){
             error: function (data) {
 
             },
-            timeout: 10000
+            timeout: AllConstant.timeout
         });
     });
     $('#btnShowUCC').click(function(){
         $('.ucc_table').html("");
         $('.shopCount').html("0");
         createUCCTable(token);
+    });
+    $('#btnShowStrategy').click(function () {
+        var url = AllConstant.baseURL + "/getStrategyDescription";
+        $(".strategy_div").addClass("toggle_div");
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {token:token},
+            contentType: "application/json",
+            dataType: "text",
+            success: function (data) {
+                var response = JSON.parse(data);
+
+                if(response.status==="200"){
+                    $('#person_id').html(response.empID);
+                    $('#person_name').html(response.name);
+                    $('#person_team').html(response.team);
+                    $('#person_region').html(response.region);
+                    setStrategyStatus('productivity_status',response.productivityStatus);
+                    setStrategyStatus('ucc_status',response.uccStatus);
+                    setStrategyStatus('strategic_contribution_status',response.strategicStatus);
+
+                    $(".strategy_div").removeClass("toggle_div");
+
+                }else{
+                    alert("Something went wrong in populating dropdown!");
+                }
+            },
+            error: function (data) {
+
+            },
+            timeout: AllConstant.timeout
+        });
     });
 
     $(document).on("click", ".person", function(){
@@ -137,11 +170,27 @@ $(document).ready(function(){
             error: function (data) {
 
             },
-            timeout: 10000
+            timeout: AllConstant.timeout
         });
     });
 
 });
+function setStrategyStatus(selector, status){
+    if(status === 1){
+        $('#'+selector).html('Acceptable');
+        $('#'+selector).addClass('successStatus');
+        $('#'+selector).addClass('btn-outline-success');
+    }else if(status===2){
+        $('#'+selector).html('Average');
+        $('#'+selector).addClass('warningStatus');
+        $('#'+selector).addClass('btn-outline-warning');
+    }else if(status===3.){
+        $('#'+selector).html('Low Performance');
+        $('#'+selector).addClass('errorStatus');
+        $('#'+selector).addClass('btn-outline-danger');
+
+    }
+}
 
 
 function setDropDown(type){
@@ -167,7 +216,7 @@ function setDropDown(type){
         error: function (data) {
 
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 }
 
@@ -210,7 +259,7 @@ function setCard(api, type){
         error: function (data) {
 
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 
     $('.btnLogout').click(function(){
@@ -270,7 +319,7 @@ function setSubOrdinatePerformanceTable(token){
         error: function (data) {
 
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 }
 function createUCCTable(token){
@@ -315,7 +364,7 @@ function createUCCTable(token){
         error: function (data) {
 
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 
 }
@@ -332,7 +381,7 @@ function setLastTransactionDate(){
         error: function (data) {
 
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 }
 function setBio(token) {
@@ -355,7 +404,7 @@ function setBio(token) {
         error: function (data) {
 
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 }
 
@@ -383,7 +432,7 @@ function drawBarChart(token, type, title){
         },
         error: function (data) {
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 }
 function setUCCTable(token){
@@ -427,7 +476,7 @@ function setUCCTable(token){
         },
         error: function (data) {
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 }
 
@@ -443,7 +492,16 @@ function loginLog(token){
         },
         error: function (data) {
         },
-        timeout: 10000
+        timeout: AllConstant.timeout
     });
 }
+$(document).on("click", ".warningStatus", function(){
+    swal("Average!", "You need to improve the performance", "warning");
+});
+$(document).on("click", ".successStatus", function(){
+    swal("Acceptable!", "Good Work! Keep it up!", "success");
+});
+$(document).on("click", ".errorStatus", function(){
+    swal("Low Performance!", "You are on the danger line. Desperately need improvement!", "error");
+});
 

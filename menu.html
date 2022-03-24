@@ -28,6 +28,8 @@
     <link rel="stylesheet" type="text/css" href="./app-assets/css/templatestyle.css">
     <link rel="stylesheet" type="text/css" href="./assets/scss/common.scss">
     <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/chartist.min.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/toastr.css">
     <style>
         .modalPerformanceDetail{
             width:fit-content;
@@ -45,6 +47,7 @@
             <img src="./app-assets/img/logo/hawklogo.png" alt="HAWK" width="250" height="100">
         </div>
         <div class="sidebar-content">
+
             <div class="nav-container">
                 <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
                     <li class="nav-item active"><a href="#" id="dashboard_menu" data-tablename="dashboard" class="menu-item "><i class="icon-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
@@ -60,7 +63,7 @@
                     <li class=" nav-item"><a href="google-map.html"><i class="icon-map"></i><span data-i18n="" class="menu-title">Google Map</span></a>
                     </li>
 
-                    <li class=" nav-item"><a href="http://pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/documentation"><i class="icon-book-open"></i><span data-i18n="" class="menu-title">Documentation</span></a>
+                    <li class=" nav-item"><a href="#" class="menu-item" id="strategy_menu" data-tablename="strategy"><i class="icon-book-open"></i><span data-i18n="" class="menu-title">Strategy</span></a>
                     </li>
                     <li class=" nav-item"><a href="https://pixinvent.ticksy.com/"><i class="icon-support"></i><span data-i18n="" class="menu-title">Support</span></a>
                     </li>
@@ -73,12 +76,19 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-faded">
         <div class="container-fluid">
-            <h4 class="navbar-header font-weight-bold" id="bio">
+            <h4 class="navbar-header font-weight-bold">
 
             </h4>
-            <h5 class="navbar-header font-weight-bold" id="last_transaction_date">
+            <h5 class="navbar-header font-weight-bold">
 
             </h5>
+
+            <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-left">
+                <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                    class="icon-bar"></span><span class="icon-bar"></span></button>
+
+            <span class="d-lg-none navbar-right navbar-collapse-toggle"><a class="open-navbar-container"><i class="ft-more-vertical"></i></a></span>
+
             <div class="navbar-container">
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav">
@@ -208,6 +218,10 @@
 
                 </section>
                 <section id="dashboard_main_form" class="main-content hide_block">
+                    <div class="card">
+                        <h3 class="card-header" id="bio"></h3>
+                        <h5 class="card-header float-right" id="last_transaction_date"></h5>
+                    </div>
                     <div class="row">
                         <div class="col-xl-3 col-lg-6 col-12">
                             <div class="card">
@@ -357,12 +371,18 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="col">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="card-block">
+                            <div class="card-header">
+                                <div class="card-title-wrap bar-primary">
                                     <p><span class="font-weight-bold">CMA</span> : Current Monthly Average | <span class="font-weight-bold">RMA</span> : Required Monthly Average | <span class="font-weight-bold">FYTarget</span> : Full Year Target</p>
                                     <p><span class="font-weight-bold">CMA</span> : موجودہ ماہانہ اوسط | <span class="font-weight-bold">RMA</span> : مطلوبہ ماہانہ اوسط | <span class="font-weight-bold">FYTarget</span> : پورے سال کا ہدف </p>
+
+                                </div>
+                            </div>
+
+                            <div class="card-content mt-1">
+                                <div class="table-responsive">
                                     <table class="table table-hover table-xl mb-0">
                                         <thead>
                                         <tr>
@@ -390,7 +410,7 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="col">
                         <div class="card">
                             <table class="table table-hover table-xl mb-0">
                                 <thead>
@@ -409,19 +429,22 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="col">
                         <div class="card">
-                            <canvas id="barchart_groupon" width="2000" height="1000"></canvas>
+                            <div class="overflow-x-scroll">
+                                <div class="chartAreaWrapper">
+                                    <canvas id="barchart_groupon" width="1200" height="600"></canvas>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
-                    <div class="row">
+                    <div class="col">
                         <div class="card">
                             <canvas id="barchart_ucc" width="2000" height="1000"></canvas>
                         </div>
 
                     </div>
-                    <div class="row">
+                    <div class="col">
                         <div class="card">
                             <canvas id="barchart_productivity" width="2000" height="1000"></canvas>
                         </div>
@@ -502,6 +525,107 @@
 
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <section id="strategy_main_form" class="main-content hide_block">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-block">
+                                        <form class="form-horizontal" novalidate="">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group">
+                                                        <h5>Select Month</h5>
+                                                        <div class="controls">
+                                                            <select id="strategy_month_select" class="custom-select form-control performance_reportingmonths_select performance_reportingmonth_select"  name="location2">
+
+                                                            </select>
+                                                            <div class="help-block"></div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <h5>Select Partner</h5>
+                                                        <div class="controls">
+                                                            <select id="strategy_partners_select" class="custom-select form-control performance_partners_select"   name="location2">
+
+                                                            </select>
+                                                            <div class="help-block"></div></div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="block-button">
+                                                        <a id="btnShowStrategy" class=" btn btn-success btn-lg btn-block">Show Strategy Details</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col toggle_div strategy_div">
+                            <div class="card ">
+                                <div class="card-header">
+                                    <div class="card-title-wrap bar-warning">
+                                        <h4 class="card-title">Basic Information</h4>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-block hide_block">
+                                        <p>Employee ID : <b id="person_id">P-00852</b></p>
+                                        <p>Name : <b id="person_name">Kamran Khan</b></p>
+                                        <p>Team : <b id="person_team">FMCG-01</b></p>
+                                        <p>Region : <b id="person_region">Islamabad</b></p>
+
+                                        <p><b>Productivity : </b></p>
+                                        <p>Per Month Productivity : <b class = " btn btn-sm round mb-0" id="productivity_status">Low Performance</b></p>
+
+                                        <p><b>Reach : </b></p>
+                                        <p>SPOs Active Shops out of 420 : <b class=" btn btn-sm round mb-0" id="ucc_status">Acceptable</b></p>
+
+                                        <p><b>Strategic Brand : </b></p>
+                                        <p>Strategic Brand Value Contribution : <b class=" btn btn-sm round mb-0" id="strategic_contribution_status">Average</b></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col toggle_div strategy_div" >
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title-wrap bar-primary">
+                                        <h4 class="card-title">Strategy / Action Plan</h4>
+                                    </div>
+                                    <a class="heading-elements-toggle">
+                                        <i class="la la-ellipsis-v font-medium-3"></i>
+                                    </a>
+                                </div>
+                                <div class="card-content mt-1">
+                                    <div class="card-block">
+                                        <fieldset class="form-group">
+                                            <label for="placeTextarea">Strategy/Action Plan</label>
+                                            <textarea class="form-control" id="placeTextarea" rows="10" placeholder="Type Strategy/Action Plan here..."></textarea>
+                                        </fieldset>
+                                        <div class="row card-block">
+                                            <a id="btnSubmit" class=" btn btn-success btn-lg btn-block">Submit plan</a>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -773,6 +897,7 @@
     <script src="./app-assets/vendors/js/datatable/pdfmake.min.js"></script>
     <script src="./app-assets/js/data-tables/datatable-basic.js"></script>
     <script src="app-assets/js/components-modal.min.js"></script>
+    <script src="./app-assets/vendors/js/sweetalert2.min.js"></script>
 </div>
 </body>
 </html>
