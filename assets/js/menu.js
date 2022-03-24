@@ -244,6 +244,13 @@ function setCard(api, type){
 
                     $('#'+type+'_TP_PERC').html(response.TPValuePerc+"%");
                     $('#'+type+'_TP_PERC_DETAIL').html(type+" TP Percentage");
+                    if(response.TPValuePerc<80){
+                        $('#iconn').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
+                        $('#iconn2').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
+                        $('#iconn3').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
+                        $('#iconn4').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
+                        
+                    }
                 }else if(api==="getUCC"){
                     $('#'+type+'_ACH_UCC').html(response.number);
                     $('#'+type+'_ACH_UCC_DETAIL').html(response.text + " ACH UCC");
@@ -503,5 +510,13 @@ $(document).on("click", ".successStatus", function(){
 });
 $(document).on("click", ".errorStatus", function(){
     swal("Low Performance!", "You are on the danger line. Desperately need improvement!", "error");
+});
+
+$(document).ready(function () {
+
+    $('#sidebarClose').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+
 });
 

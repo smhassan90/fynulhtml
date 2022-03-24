@@ -31,6 +31,8 @@
     <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/toastr.css">
     <link rel="stylesheet" type="text/css" href="./assets/scss/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
 
 </head>
 <body data-col="2-columns" class=" 2-columns ">
@@ -38,10 +40,28 @@
 <div class="wrapper">
 
 
+
     <div data-active-color="black" data-background-color="white" data-image="" class="app-sidebar">
         <div class="sidebar-header">
-            <img src="./app-assets/img/logo/hawklogo.png" alt="HAWK" width="250" height="100">
-        </div>
+            <div class="logo clearfix">
+              <a href="index.html" class="logo-text float-left">
+                <div class="logo-img">
+                  <img src="/app-assets/img/logo/hawklogo1.png" alt="Convex Logo" />
+                </div>
+                <span class="text align-middle">HAWK</span></a
+              ><a
+                id="sidebarToggle"
+                href="javascript:;"
+                class="nav-toggle d-none d-sm-none d-md-none d-lg-block"
+                ><i data-toggle="expanded" class="ft-disc toggle-icon"></i></a
+              ><a
+                id="sidebarClose"
+                href="javascript:;"
+                class="nav-close d-block d-md-block d-lg-none d-xl-none"
+                ><i class="ft-circle"></i
+              ></a>
+            </div>
+          </div>
         <div class="sidebar-content">
 
             <div class="nav-container">
@@ -49,14 +69,14 @@
                     <li class="nav-item active"><a href="#" id="dashboard_menu" data-tablename="dashboard" class="menu-item "><i class="icon-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
 
                     </li>
-                    <li class="nav-item"><a href="#" class="menu-item" id="performance_menu" data-tablename="performance"><i class="icon-magnet"></i><span data-i18n="" class="menu-title">Performance</span></a>
+                    <li class="nav-item"><a href="#" class="menu-item" id="performance_menu" data-tablename="performance"><i class="fa-solid fa-person-digging"></i><span data-i18n="" class="menu-title">Performance</span></a>
 
                     </li>
-                    <li class="nav-item"><a href="#" class="menu-item" id="reports_menu" data-tablename="reports"><i class="icon-magnet"></i><span data-i18n="" class="menu-title">Reports</span></a>
+                    <li class="nav-item"><a href="#" class="menu-item" id="reports_menu" data-tablename="reports"><i class="fa-regular fa-clipboard"></i><span data-i18n="" class="menu-title">Reports</span></a>
 
                     </li>
 
-                    <li class=" nav-item"><a href="google-map.html"><i class="icon-map"></i><span data-i18n="" class="menu-title">Google Map</span></a>
+                    <li class=" nav-item"><a href="#"><i class="icon-map"></i><span data-i18n="" class="menu-title">Google Map</span></a>
                     </li>
 
                     <li class=" nav-item"><a href="#" class="menu-item" id="strategy_menu" data-tablename="strategy"><i class="icon-book-open"></i><span data-i18n="" class="menu-title">Strategy</span></a>
@@ -72,7 +92,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-faded">
         <div class="container-fluid">
+
+
+
             <h4 class="navbar-header font-weight-bold">
+               
 
             </h4>
             <h5 class="navbar-header font-weight-bold">
@@ -214,18 +238,18 @@
 
                 </section>
                 <section id="dashboard_main_form" class="main-content hide_block">
-                    <div class="card">
+                    <div class="card" style="border: 2px solid rgb(184, 184, 184)">
                         <h3 class="card-header" id="bio"></h3>
                         <h5 class="card-header float-right" id="last_transaction_date"></h5>
                     </div>
                     <div class="row">
                         <div class="col-xl-3 col-lg-6 col-12">
-                            <div class="card">
+                            <div class="card ytdcards">
                                 <div class="card-body">
                                     <div class="px-3 py-3">
                                         <div class="media">
                                             <div class="media-body text-left align-self-center">
-                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                                <i class="icon-graph success font-large-2 float-left" id="iconn"></i>
                                             </div>
                                             <div class="media-body text-right">
                                                 <h3 id="YTD_TP_VALUE"></h3>
@@ -238,7 +262,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-12">
-                            <div class="card">
+                            <div class="card ytdcards">
                                 <div class="card-body">
                                     <div class="px-3 py-3">
                                         <div class="media">
@@ -256,12 +280,12 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-12">
-                            <div class="card">
+                            <div class="card ytdcards">
                                 <div class="card-body">
                                     <div class="px-3 py-3">
                                         <div class="media">
                                             <div class="media-body text-left align-self-center">
-                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                                <i class="icon-graph success font-large-2 float-left" id="iconn2"></i>
                                             </div>
                                             <div class="media-body text-right">
                                                 <h3 id="YTD_TP_PERC"></h3>
@@ -274,7 +298,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-12">
-                            <div class="card">
+                            <div class="card ytdcards">
                                 <div class="card-body">
                                     <div class="px-3 py-3">
                                         <div class="media">
@@ -294,12 +318,12 @@
                     </div>
                     <div class="row">
                         <div class="col-xl-3 col-lg-6 col-12">
-                            <div class="card">
+                            <div class="card mtdcards"   >
                                 <div class="card-body">
                                     <div class="px-3 py-3">
                                         <div class="media">
                                             <div class="media-body text-left align-self-center">
-                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                                <i class="icon-graph success font-large-2 float-left"  id="iconn3"></i>
                                             </div>
                                             <div class="media-body text-right">
                                                 <h3 id="MTD_TP_VALUE"></h3>
@@ -312,7 +336,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-12">
-                            <div class="card">
+                            <div class="card mtdcards"   >
                                 <div class="card-body">
                                     <div class="px-3 py-3">
                                         <div class="media">
@@ -330,12 +354,12 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-12">
-                            <div class="card">
+                            <div class="card mtdcards"   >
                                 <div class="card-body">
                                     <div class="px-3 py-3">
                                         <div class="media">
                                             <div class="media-body text-left align-self-center">
-                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                                <i class="icon-graph success font-large-2 float-left" id="iconn4"></i>
                                             </div>
                                             <div class="media-body text-right">
                                                 <h3 id="MTD_TP_PERC"></h3>
@@ -348,7 +372,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-12">
-                            <div class="card">
+                            <div class="card mtdcards"   >
                                 <div class="card-body">
                                     <div class="px-3 py-3">
                                         <div class="media">
@@ -367,19 +391,15 @@
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card">
+                    
+                        <div class="card tableborder">
                             <div class="card-header">
                                 <div class="card-title-wrap bar-primary">
                                     <p><span class="font-weight-bold">CMA</span> : Current Monthly Average | <span class="font-weight-bold">RMA</span> : Required Monthly Average | <span class="font-weight-bold">FYTarget</span> : Full Year Target</p>
                                     <p><span class="font-weight-bold">CMA</span> : موجودہ ماہانہ اوسط | <span class="font-weight-bold">RMA</span> : مطلوبہ ماہانہ اوسط | <span class="font-weight-bold">FYTarget</span> : پورے سال کا ہدف </p>
 
                                 </div>
-                            </div>@media only screen and (max-width: 600px) {
-                                .chartAreaWrapper {
-                                    width: 800px;
-                                }
-                            }
+                            </div>
 
                             <div class="card-content mt-1">
                                 <div class="table-responsive">
@@ -408,9 +428,9 @@
                             </div>
                         </div>
 
-                    </div>
+                
 
-                    <div class="card">
+                    <div class="card tableborder">
                         <div class="card-content mt-1">
                           <div class="table-responsive">
                             <table class="table table-hover table-xl mb-0" id="recent-orders">
@@ -428,17 +448,17 @@
                           </div>
                       </div>
 
-                    <div class="col">
-                        <div class="card">
+                    
+                        <div class="card graphborder">
                             <div class="overflow-x-scroll">
                                 <div class="chartAreaWrapper">
                                     <canvas id="barchart_groupon" width="1200" height="600"></canvas>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
+                    
+                    
+                        <div class="card graphborder" style="border: 2px solid rgb(220, 226, 130)">
                             <div class="overflow-x-scroll">
                                 <div class="chartAreaWrapper">
                             <canvas id="barchart_ucc" width="2000" height="1000"></canvas>
@@ -446,9 +466,8 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class="col">
-                        <div class="card">
+                    
+                        <div class="card graphborder" style="border: 2px solid rgb(220, 226, 130)">
                             <div class="overflow-x-scroll">
                                 <div class="chartAreaWrapper">
                             <canvas id="barchart_productivity" width="2000" height="1000"></canvas>
@@ -456,7 +475,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    
 
                 </section>
                 <section id="reports_main_form" class="main-content hide_block">
@@ -855,6 +874,7 @@
     <script src="./app-assets/vendors/js/screenfull.min.js"></script>
     <script src="./app-assets/vendors/js/pace/pace.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/c8aeabbdeb.js" crossorigin="anonymous"></script>
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
     <script src="./app-assets/vendors/js/chartist.min.js"></script>
