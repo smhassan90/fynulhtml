@@ -30,11 +30,7 @@
     <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/toastr.css">
-    <style>
-        .modalPerformanceDetail{
-            width:fit-content;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./assets/scss/style.css">
 
 </head>
 <body data-col="2-columns" class=" 2-columns ">
@@ -379,7 +375,11 @@
                                     <p><span class="font-weight-bold">CMA</span> : موجودہ ماہانہ اوسط | <span class="font-weight-bold">RMA</span> : مطلوبہ ماہانہ اوسط | <span class="font-weight-bold">FYTarget</span> : پورے سال کا ہدف </p>
 
                                 </div>
-                            </div>
+                            </div>@media only screen and (max-width: 600px) {
+                                .chartAreaWrapper {
+                                    width: 800px;
+                                }
+                            }
 
                             <div class="card-content mt-1">
                                 <div class="table-responsive">
@@ -410,24 +410,23 @@
 
                     </div>
 
-                    <div class="col">
-                        <div class="card">
-                            <table class="table table-hover table-xl mb-0">
-                                <thead>
+                    <div class="card">
+                        <div class="card-content mt-1">
+                          <div class="table-responsive">
+                            <table class="table table-hover table-xl mb-0" id="recent-orders">
+                              <thead>
                                 <tr>
-                                    <th class="border-top-0">Name</th>
-                                    <th class="border-top-0">Total Customers</th>
-                                    <th class="border-top-0">UCC</th>
-                                    <th class="border-top-0">Coverage</th>
-                                </tr>
-                                </thead>
-                                <tbody class="ucc_universe_detail">
+                                      <th class="border-top-0">Name</th>
+                                      <th class="border-top-0">Total</th>
+                                      <th class="border-top-0">Customers</th>
+                                      <th class="border-top-0">Coverage</th>
+                              </thead>
+                              <tbody class="ucc_universe_detail"></tbody>
+                              </table>
+                          </div>
 
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
+                          </div>
+                      </div>
 
                     <div class="col">
                         <div class="card">
@@ -440,13 +439,21 @@
                     </div>
                     <div class="col">
                         <div class="card">
+                            <div class="overflow-x-scroll">
+                                <div class="chartAreaWrapper">
                             <canvas id="barchart_ucc" width="2000" height="1000"></canvas>
+                            </div>
+                            </div>
                         </div>
 
                     </div>
                     <div class="col">
                         <div class="card">
+                            <div class="overflow-x-scroll">
+                                <div class="chartAreaWrapper">
                             <canvas id="barchart_productivity" width="2000" height="1000"></canvas>
+                            </div>
+                            </div>
                         </div>
 
                     </div>
@@ -690,8 +697,8 @@
                             </div>
                         </div>
                         <div class="modal fade text-left" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-                            <div class="modal-lg modal-dialog" role="document">
-                                <div class="modalPerformanceDetail modal-content">
+                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                <div class="modal-content">
                                     <div class="modal-header">
                                         <h4 class="modal-title" id="modalHeading"></h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -699,37 +706,36 @@
                                         </button>
                                     </div>
                                     <div id="detailPerformanceModal" class="modal-body">
-                                        <div class="row">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="card-block">
-                                                        <p><span class="font-weight-bold">CMA</span> : Current Monthly Average | <span class="font-weight-bold">RMA</span> : Required Monthly Average | <span class="font-weight-bold">FYTarget</span> : Full Year Target</p>
-                                                        <table class="table table-hover table-xl mb-0">
-                                                            <thead>
-                                                            <tr>
-                                                                <th class="border-top-0">Name</th>
-                                                                <th class="border-top-0">MTD Target</th>
-                                                                <th class="border-top-0">MTD Value</th>
-                                                                <th class="border-top-0">MTD %</th>
-                                                                <th class="border-top-0">YTD Target</th>
-                                                                <th class="border-top-0">YTD Value</th>
-                                                                <th class="border-top-0">YTD %</th>
-                                                                <th class="border-top-0">FYTarget</th>
-                                                                <th class="border-top-0">Balance</th>
-                                                                <th class="border-top-0">CMA</th>
-                                                                <th class="border-top-0">RMA</th>
-                                                            </tr>
-                                                            </thead>
+                                        <h5><span class="font-weight-bold">Scroll horizontlly to view full table</span></h5>
+                                                    <p><span class="font-weight-bold">CMA</span> : Current Monthly Average | <span class="font-weight-bold">RMA</span> : Required Monthly Average | <span class="font-weight-bold">FYTarget</span> : Full Year Target</p>
+                                                
+                                                <a class="heading-elements-toggle">
+                                                            <i class="la la-ellipsis-v font-medium-3"></i>
+                                                        </a>
+                                             
+                                              
+                                                <div class="table-responsive">
+                                                  <table class="table table-hover table-xl mb-0" id="recent-orders">
+                                                    <thead>
+                                                      <tr>
+                                                        <th class="border-top-0">Team</th>
+                                                            <th class="border-top-0">MTD Target</th>
+                                                            <th class="border-top-0">MTD Value</th>
+                                                            <th class="border-top-0">MTD %</th>
+                                                            <th class="border-top-0">YTD Target</th>
+                                                            <th class="border-top-0">YTD Value</th>
+                                                            <th class="border-top-0">YTD %</th>
+                                                            <th class="border-top-0">FYTarget</th>
+                                                            <th class="border-top-0">Balance</th>
+                                                            <th class="border-top-0">CMA</th>
+                                                            <th class="border-top-0">RMA</th>
+                                                    </thead>
                                                             <tbody class="SPOProgressSKUWise">
-
-
+                
+                
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>

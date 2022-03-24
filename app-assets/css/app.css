@@ -53625,8 +53625,3 @@ input[type='checkbox'].switch, input[type='radio'].switch {
 .main-content .color-palette span.dark {
   color : rgba(0, 0, 0, 0.87);
 }
-@media only screen and (max-width: 600px) {
-    .chartAreaWrapper {
-        width: 800px;
-    }
-}
