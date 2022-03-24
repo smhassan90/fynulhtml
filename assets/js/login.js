@@ -27,12 +27,7 @@ $(document).ready(function(){
                             setCookie('token', loginResponse.token,365);
                             setCookie('positionCode', loginResponse.positionCode,365);
                             swal("Successfully!", loginResponse.employee.NAME+", You are logged in", "success").done();
-                            if(loginResponse.designation_id){
-                                self.location="menuExecutive.html";
-                            }else{
-                                self.location="menu.html";
-                            }
-
+                            self.location="menu.html";
                         }else if(loginResponse.statusCode === "404"){
                             swal("Error!", "Invalid username or password!", "error").done();
                         }
