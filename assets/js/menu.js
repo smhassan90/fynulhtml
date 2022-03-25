@@ -244,13 +244,18 @@ function setCard(api, type){
 
                     $('#'+type+'_TP_PERC').html(response.TPValuePerc+"%");
                     $('#'+type+'_TP_PERC_DETAIL').html(type+" TP Percentage");
-                    if(response.TPValuePerc<80){
-                        $('#iconn').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
-                        $('#iconn2').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
-                        $('#iconn3').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
-                        $('#iconn4').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
-                        
+
+                    var ytpPerc=$("#YTD_TP_PERC").val();
+                    var mtdTpVal=$("#MTD_TP_PERC").val();
+
+                    if(ytpPerc<80){
+                        $('.ytdIcon').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
+                        }
+
+                    if(mtdTpVal<80){
+                        $('.mtdIcon').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
                     }
+
                 }else if(api==="getUCC"){
                     $('#'+type+'_ACH_UCC').html(response.number);
                     $('#'+type+'_ACH_UCC_DETAIL').html(response.text + " ACH UCC");
@@ -519,4 +524,3 @@ $(document).ready(function () {
     });
 
 });
-

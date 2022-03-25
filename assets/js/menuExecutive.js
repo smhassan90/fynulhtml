@@ -1,19 +1,16 @@
 $(document).ready(function(){
-
-    /*
-    drawBarChart(token, " ", "Team Wise Net Sales Value (MTD)");
-    drawBarChart(token, " ", "Team Wise Net Sales Value (YTD)");
-    drawBarChart(token, " ", "GSM Net Sales Value");
-    drawLineChart(token, " ", "Sales Trend");
-    */
-
-
+    
     var token = getCookie('token');
     if(token===null){
         self.location="index.html";
     }
     loginLog(token);
     $("#dashboard_menu").trigger('click');
+
+    drawBarChart(token, "monthlyBarChart", "Team Wise Net Sales Value (MTD)");
+    drawBarChart(token, "yearlyBarChart", "Team Wise Net Sales Value (YTD)");
+    //drawBarChart(token, " ", "GSM Net Sales Value");
+    //drawLineChart(token, " ", "Sales Trend");
 
     setBio(token);
 
@@ -232,7 +229,7 @@ function loginLog(token){
 
 }
 
-function drawBarChart(token, type, title){
+/*function drawBarChart(token, type, title){
     var url = AllConstant.baseURL + "/getGSMNetSales";
     $.ajax({
         type: "GET",
@@ -257,13 +254,13 @@ function drawBarChart(token, type, title){
         },
         timeout: AllConstant.timeout
     });
-}
+}*/
 
 
 //CHARTS
 
 function drawBarChart(token, type, title){
-    //var url = AllConstant.baseURL + "/getBarChartData";
+    var url = AllConstant.baseURL + "/getExecutiveBarChart";
     $.ajax({
         type: "GET",
         url: url,
