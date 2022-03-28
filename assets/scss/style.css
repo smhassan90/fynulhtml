@@ -70,8 +70,8 @@
         width: 800px;
     }
   }
-.biocard{
-
+.bioCard{
+    border: 2px solid rgb(184, 184, 184)
 }
 .ytdcards{
     border: 2px solid rgb(209, 161, 4)

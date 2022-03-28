@@ -1,3 +1,7 @@
+var TP_SALE_VALUE;
+    var NET_SALE_VALUE;
+    var DISCOUNT;
+    var E_QTY;
 $(document).ready(function(){
     
     var token = getCookie('token');
@@ -9,8 +13,8 @@ $(document).ready(function(){
 
     drawBarChart(token, "monthlyBarChart", "Team Wise Net Sales Value (MTD)");
     drawBarChart(token, "yearlyBarChart", "Team Wise Net Sales Value (YTD)");
-    //drawBarChart(token, " ", "GSM Net Sales Value");
-    //drawLineChart(token, " ", "Sales Trend");
+    drawBarChart(token, "GSM", "GSM NET SALES");
+    drawLineChart(token,'');
 
     setBio(token);
 
@@ -229,34 +233,6 @@ function loginLog(token){
 
 }
 
-/*function drawBarChart(token, type, title){
-    var url = AllConstant.baseURL + "/getGSMNetSales";
-    $.ajax({
-        type: "GET",
-        url: url,
-        data: {token:token , type:type },
-        contentType: "application/json",
-        dataType: "text",
-        success: function (data) {
-            var response = JSON.parse(data);
-            new Chart($("#barchart_"+type), {
-                type: 'bar',
-                data: response,
-                options: {
-                    title: {
-                        display: true,
-                        text: title
-                    }
-                }
-            });
-        },
-        error: function (data) {
-        },
-        timeout: AllConstant.timeout
-    });
-}*/
-
-
 //CHARTS
 
 function drawBarChart(token, type, title){
@@ -269,14 +245,43 @@ function drawBarChart(token, type, title){
         dataType: "text",
         success: function (data) {
             var response = JSON.parse(data);
+
             new Chart($("#chart_"+type), {
                 type: 'bar',
                 data: response,
                 options: {
-                    title: {
-                        display: true,
-                        text: title
+                  
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: title
+                        }
+                    
+                },
+                  tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            return "" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                            });
+                        }
                     }
+                },
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true,
+                        callback: function(value, index, values) {
+                          if(parseInt(value) >= 1000){
+                            return '' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                          } else {
+                            return '' + value;
+                          }
+                        }
+                      }
+                    }]
+                  },
+                  
                 }
             });
         },
@@ -286,8 +291,68 @@ function drawBarChart(token, type, title){
     });
 }
 
+$('input[type=radio][name=lineCharts]').change(function() {
+  updateLinechart();
+      drawLineChart();
+    });
+
+function updateLinechart(){
+var data;
+  if($('#netSale').is(":checked")){
+    data = NET_SALE_VALUE;
+  }
+
+  else if($('#tpSale').is(":checked")){
+    data = TP_SALE_VALUE;
+  }
+
+  else if($('#eachQty').is(":checked")){
+data = E_QTY;
+  }
+    // see which option is selected
+
+    //if tpsalevalue is selected then use tpSaleVal variable for the below chart data.
+
+new Chart($("#chart_TWNSValYTDAch"), {
+                type: 'line',
+                fill: false,
+                data: data,
+                options: {
+                  elements: {
+                    line: {
+                        tension: 0
+                    }
+                },
+                  tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            return "" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                            });
+                        }
+                    }
+                },
+                  scales: {
+                    yAxes: [{
+                      ticks: {
+                        beginAtZero: true,
+                        callback: function(value, index, values) {
+                          if(parseInt(value) >= 1000){
+                            return '' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                          } else {
+                            return '' + value;
+                          }
+                        }
+                      }
+                    }]
+                  }
+                }
+
+            });
+
+}
 function drawLineChart(token, type, title){
-    //var url = AllConstant.baseURL + "/getlineChartData";
+    var url = AllConstant.baseURL + "/getExecutiveLineChart";
     $.ajax({
         type: "GET",
         url: url,
@@ -295,17 +360,19 @@ function drawLineChart(token, type, title){
         contentType: "application/json",
         dataType: "text",
         success: function (data) {
-            var response = JSON.parse(data);
-            new Chart($("#linechart_"+type), {
-                type: 'line',
-                data: response,
-                options: {
-                    title: {
-                        display: true,
-                        text: title
-                    }
-                }
-            });
+          
+           var response = JSON.parse(data);
+                
+            for(var i=0 ; i<response.length ; i++){
+              if(response[i].unitType==='E_QTY'){
+                E_QTY = response[i].barChartData;
+              }else if (response[i].unitType==='TP_SALE_VALUE'){
+                TP_SALE_VALUE = response[i].barChartData;
+              }else if (response[i].unitType==='NET_SALE_VALUE'){
+                NET_SALE_VALUE = response[i].barChartData;
+              }
+            }
+            updateLinechart();
         },
         error: function (data) {
         },
@@ -313,39 +380,106 @@ function drawLineChart(token, type, title){
     });
 }
 
-var xValues = [100,200,300,400,500,600,700,800,900,1000];
 
+function setMtdPerformanceTable(token){
+  //var url = AllConstant.baseURL + "/getTeamMtdProgress";
 
-//multiple line chart
-new Chart("chart_TWNSValYTDAch", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-        label: "FMCG01",
-      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-      borderColor: "red",
-      fill: false
-    },{
-        label: "FMCG02",
-      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
-      borderColor: "green",
-      fill: false
-    },{
-        label: "Pharma",
-      data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
-      borderColor: "blue",
-      fill: false
-    },
-    {
-        label: "SF",
-      data: [400,300,3000,7000,4000,2000,700,4000,3500,7500],
-      borderColor: "orange",
-      fill: false
-    }
-]
-  },
-  options: {
-    legend: {display: true}
-  }
-});
+  $.ajax({
+      type: "GET",
+      url: url,
+      data: {token:token},
+      contentType: "application/json",
+      dataType: "text",
+      success: function (data) {
+          var response = JSON.parse(data);
+          var html="";
+          if(response.length>0){
+
+              for(var i=0 ; i<response.length ; i++){
+                  if(response[i].FYTarget == "0" && response[i].ytdAch == "0"){
+                      continue;
+                  }
+                  if(response[i].position_code.includes("ASM")){
+                      html +='<tr data-positionCode="'+response[i].position_code+'" class="person font-weight-bold">\n';
+                  }else{
+                      html += '<tr data-positionCode="'+response[i].position_code+'" class="person">\n';
+                  }
+
+                  html+='                                                                   <td class="text-truncate"> '+response[i].team+'</td>\n' +
+                      '                                                                    <td class="text-truncate"> '+response[i].mtdCurrAvgSales+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].mtdReqAnnPerDayNetVal+'%</td>\n' +
+                      '                                                                    <td class="text-truncate"> '+response[i].mtdAch+'</td>\n' +
+                      '                                                                    <td class="text-truncate"> '+response[i].mtdDiscTarget+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].mtdActual+'%</td>\n' +
+                      '                                                                    <td class="text-truncate"> '+response[i].mtdUccLm+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].mtdUccCm+'</td>\n' +
+
+                      '                                                                </tr>';
+              }
+
+          }else{
+              html+="<tr><p>No Sale found</p></tr>";
+          }
+
+          $('.teamMtdProgress').html(html);
+
+      },
+      error: function (data) {
+
+      },
+      timeout: 10000
+  });
+}
+
+function setYtdPerformanceTable(token){
+  //var url = AllConstant.baseURL + "/getTeamMtdProgress";
+
+  $.ajax({
+      type: "GET",
+      url: url,
+      data: {token:token},
+      contentType: "application/json",
+      dataType: "text",
+      success: function (data) {
+          var response = JSON.parse(data);
+          var html="";
+          if(response.length>0){
+
+              for(var i=0 ; i<response.length ; i++){
+                  if(response[i].FYTarget == "0" && response[i].ytdAch == "0"){
+                      continue;
+                  }
+                  if(response[i].position_code.includes("ASM")){
+                      html +='<tr data-positionCode="'+response[i].position_code+'" class="person font-weight-bold">\n';
+                  }else{
+                      html += '<tr data-positionCode="'+response[i].position_code+'" class="person">\n';
+                  }
+
+                  html+='                                                                    <td class="text-truncate"> '+response[i].team+'</td>\n' +
+                      '                                                                    <td class="text-truncate"> '+response[i].ytdTarget+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].ytdSales+'%</td>\n' +
+                      '                                                                    <td class="text-truncate"> '+response[i].ytdAch+'</td>\n' +
+                      '                                                                    <td class="text-truncate"> '+response[i].ytdDiscTarget+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].ytdActual+'%</td>\n' +
+                      '                                                                    <td class="text-truncate"> '+response[i].ytdFYTarget+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].ytdBalTarget+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].ytdCurrMnthlyAvg+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].ytdReqMnthlyAvg+'</td>\n' +
+                      '                                                                    <td class="text-truncate">'+response[i].ytdBalTarget+'</td>\n' +
+
+                      '                                                                </tr>';
+              }
+
+          }else{
+              html+="<tr><p>No Sale found</p></tr>";
+          }
+
+          $('.teamYtdProgress').html(html);
+
+      },
+      error: function (data) {
+
+      },
+      timeout: 10000
+  });
+}

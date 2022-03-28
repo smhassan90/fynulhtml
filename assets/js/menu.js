@@ -245,10 +245,10 @@ function setCard(api, type){
                     $('#'+type+'_TP_PERC').html(response.TPValuePerc+"%");
                     $('#'+type+'_TP_PERC_DETAIL').html(type+" TP Percentage");
 
-                    var ytpPerc=$("#YTD_TP_PERC").val();
+                    var ytdPerc=$("#YTD_TP_PERC").val();
                     var mtdTpVal=$("#MTD_TP_PERC").val();
 
-                    if(ytpPerc<80){
+                    if(ytdPerc<80){
                         $('.ytdIcon').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
                         }
 

@@ -5,6 +5,13 @@ $(document).ready(function(){
     if(token!==null && token !== '' && token !== 'undefined'){
         self.location="menu.html";
     }
+
+    $('.loginform').keypress(function(e){
+        if(e.keyCode==13){
+        $('#btnLogin').click();
+        }
+      });
+
     $('#btnLogin').click(function(){
         var id = $('#inputID').val();
         var pass = $('#inputPass').val();
