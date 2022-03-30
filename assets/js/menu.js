@@ -249,11 +249,17 @@ function setCard(api, type){
                     var mtdTpVal=$("#MTD_TP_PERC").val();
 
                     if(ytdPerc<80){
-                        $('.ytdIcon').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
+                        $('.ytdIcon').addClass("bi bi-graph-down danger");
                         }
+                    else{
+                        $('.ytdIcon').addClass("bi bi-graph-up success");
+                    }
 
                     if(mtdTpVal<80){
-                        $('.mtdIcon').removeClass("icon-graph success").addClass("bi bi-graph-down danger");
+                        $('.mtdIcon').addClass("bi bi-graph-down danger");
+                    }
+                    else{
+                        $('.mtdIcon').addClass("bi bi-graph-up success");
                     }
 
                 }else if(api==="getUCC"){
@@ -305,20 +311,43 @@ function setSubOrdinatePerformanceTable(token){
                         html += '<tr data-positionCode="'+response[i].position_code+'" class="person">\n';
                     }
 
+                    var classToAddmtd,classToAddytd;
 
-                    html+='                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
+                    if(response[i].mtdPerc<90 && response[i].mtdPerc>70){
+                        classToAddmtd=" btn btn-sm round mb-0 warningStatus btn-outline-warning";
+                    }
+                    else if(response[i].mtdPerc<70){
+                        classToAddmtd=" btn btn-sm round mb-0 errorStatus btn-outline-danger";
+                    }
+                    else{
+                        classToAddmtd=" btn btn-sm round mb-0 successStatus btn-outline-success";
+                    }
+
+                    if(response[i].ytdPerc<90 && response[i].ytdPerc>70){
+                        classToAddytd=" btn btn-sm round mb-0 warningStatus btn-outline-warning";
+                    }
+                    else if(response[i].ytdPerc<70){
+                        classToAddytd=" btn btn-sm round mb-0 errorStatus btn-outline-danger";
+                    }
+                    else{
+                        classToAddytd=" btn btn-sm round mb-0 successStatus btn-outline-success";
+                    }
+
+                
+
+                    html+='                                                                  <td class="text-truncate"> '+response[i].name+'</td>\n' +
                         '                                                                    <td class="text-truncate"> '+response[i].mtdTarget+'</td>\n' +
                         '                                                                    <td class="text-truncate"> '+response[i].mtdAch+'</td>\n' +
-                        '                                                                    <td class="text-truncate">'+response[i].mtdPerc+'%</td>\n' +
+                        '                                                                    <td class="text-truncate '+classToAddmtd+'">'+response[i].mtdPerc+'%</td>\n' +
                         '                                                                    <td class="text-truncate"> '+response[i].ytdTarget+'</td>\n' +
                         '                                                                    <td class="text-truncate"> '+response[i].ytdAch+'</td>\n' +
-                        '                                                                    <td class="text-truncate">'+response[i].ytdPerc+'%</td>\n' +
+                        '                                                                    <td class="text-truncate '+classToAddytd+'">'+response[i].ytdPerc+'%</td>\n' +
                         '                                                                    <td class="text-truncate"> '+response[i].FYTarget+'</td>\n' +
                         '                                                                    <td class="text-truncate">'+response[i].balance+'</td>\n' +
                         '                                                                    <td class="text-truncate">'+response[i].CMA+'</td>\n' +
                         '                                                                    <td class="text-truncate"> '+response[i].RMA+'</td>\n' +
-
                         '                                                                </tr>';
+                        
                 }
 
             }else{
@@ -438,6 +467,29 @@ function drawBarChart(token, type, title){
                     title: {
                         display: true,
                         text: title
+                    },
+                    tooltips: {
+                      callbacks: {
+                          label: function(tooltipItem, data) {
+                              return "" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                                  return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                              });
+                          }
+                      }
+                  },
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          beginAtZero: true,
+                          callback: function(value, index, values) {
+                            if(parseInt(value) >= 1000){
+                              return '' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            } else {
+                              return '' + value;
+                            }
+                          }
+                        }
+                      }]
                     }
                 }
             });
@@ -471,10 +523,10 @@ function setUCCTable(token){
                     }
 
 
-                    html+='                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
+                    html+='                                                                    <td class="text-truncate"> '+response[i].name+'</td>\n' +
                         '                                                                    <td class="text-truncate"> '+response[i].totalCustomers+'</td>\n' +
                         '                                                                    <td class="text-truncate"> '+response[i].ucc+'</td>\n' +
-                        '                                                                    <td class="text-truncate">'+response[i].coverage+'%</td>\n' +
+                        '                                                                    <td class="text-truncate"> '+response[i].coverage+'%</td>\n' +
 
                         '                                                                </tr>';
                 }

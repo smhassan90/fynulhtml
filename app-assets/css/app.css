@@ -1920,7 +1920,7 @@ pre code {
 .table th, .table td {
   padding : 0.75rem;
   vertical-align : top;
-  border-top : 1px solid #DEE2E6;
+  /* border-top : 1px solid #DEE2E6; */
 }
 .table thead th {
   vertical-align : bottom;
