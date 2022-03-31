@@ -2,7 +2,8 @@ var TP_SALE_VALUE;
     var NET_SALE_VALUE;
     var DISCOUNT;
     var E_QTY;
-$(document).ready(function(){
+var chart;
+    $(document).ready(function(){
     
     var token = getCookie('token');
     if(token===null){
@@ -312,8 +313,11 @@ data = E_QTY;
     // see which option is selected
 
     //if tpsalevalue is selected then use tpSaleVal variable for the below chart data.
+    if(chart!==undefined){
+        chart.destroy();
+    }
 
-new Chart($("#chart_TWNSValYTDAch"), {
+ chart = new Chart($("#chart_TWNSValYTDAch"), {
                 type: 'line',
                 fill: false,
                 data: data,
