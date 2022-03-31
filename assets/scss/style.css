@@ -85,7 +85,7 @@
     border: 2px solid rgb(220, 226, 130)
 }
 .iconBull{
-    background: url("/app-assets/img/icons/target_small.png");
+    background: url("../../app-assets/img/icons/target_small.png");
     height: 67px;
     width: 67px;
     display: block;

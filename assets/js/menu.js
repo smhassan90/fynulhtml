@@ -144,7 +144,7 @@ $(document).ready(function(){
                             name = response[i].personName ;
                         }
                         html += '<tr data-positionCode="'+response[i].position_code+'" >\n' +
-                            '                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o font-medium-1 mr-1"></i> '+response[i].name+'</td>\n' +
+                            '                                                                    <td class="text-truncate"> '+response[i].name+'</td>\n' +
                             '                                                                    <td class="text-truncate"> '+response[i].mtdTarget+'</td>\n' +
                             '                                                                    <td class="text-truncate"> '+response[i].mtdAch+'</td>\n' +
                             '                                                                    <td class="text-truncate">'+response[i].mtdPerc+'%</td>\n' +
