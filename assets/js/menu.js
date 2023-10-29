@@ -1,10 +1,10 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
     var token = getCookie('token');
-    if(token===null){
-        self.location="index.html";
+    if (token === null) {
+        self.location = "index.html";
     }
-  //  loginLog(token);
+    //  loginLog(token);
     $("#dashboard_menu").trigger('click');
     drawBarChart(token, "groupon", "SKU wise Sale comparison on months");
     drawBarChart(token, "ucc", "UCC comparison on months");
@@ -28,7 +28,7 @@ $(document).ready(function(){
     setSubOrdinatePerformanceTable(token);
 
     setUCCTable(token);
-    $('#btnShowDetail').click(function(){
+    $('#btnShowDetail').click(function () {
 
         var month = $('.performance_reportingmonths_select').val();
         var token = getCookie('token');
@@ -39,40 +39,40 @@ $(document).ready(function(){
         $.ajax({
             type: "GET",
             url: url,
-            data: {token:token, position_code:positionCode, month:month,products:products },
+            data: {token: token, position_code: positionCode, month: month, products: products},
             contentType: "application/json",
             dataType: "text",
             success: function (data) {
                 var response = JSON.parse(data);
 
-                if(response!=='' && response!== undefined ){
+                if (response !== '' && response !== undefined) {
                     var html = '';
-                    if(response.length>0){
+                    if (response.length > 0) {
 
-                        for(var i=0 ; i<response.length ; i++){
+                        for (var i = 0; i < response.length; i++) {
 
                             html += '<tr>\n' +
-                                '                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o '+classStatus+' font-medium-1 mr-1"></i> '+statusText+'</td>\n' +
+                                '                                                                    <td class="text-truncate"><i class="fa fa-dot-circle-o ' + classStatus + ' font-medium-1 mr-1"></i> ' + statusText + '</td>\n' +
                                 '                                                                    <td class="text-truncate">\n' +
                                 '                                                                        <span class="avatar avatar-xs">\n' +
-                                '                                                                            <img class="box-shadow-2" src="./app-assets/img/portrait/small/'+img+'.png" alt="avatar">\n' +
+                                '                                                                            <img class="box-shadow-2" src="./app-assets/img/portrait/small/' + img + '.png" alt="avatar">\n' +
                                 '                                                                        </span>\n' +
-                                '                                                                        <span>'+response[i].groupOn+'</span>\n' +
+                                '                                                                        <span>' + response[i].groupOn + '</span>\n' +
                                 '                                                                    </td>\n' +
-                                '                                                                    <td class="text-truncate">RS '+response[i].TP_SALE_VALUE+'</td>\n' +
-                                '                                                                    <td class="text-truncate">RS '+response[i].target+'</td>\n' +
-                                '                                                                    <td class="text-truncate">'+response[i].percentage+'%</td>\n' +
+                                '                                                                    <td class="text-truncate">RS ' + response[i].TP_SALE_VALUE + '</td>\n' +
+                                '                                                                    <td class="text-truncate">RS ' + response[i].target + '</td>\n' +
+                                '                                                                    <td class="text-truncate">' + response[i].percentage + '%</td>\n' +
                                 '                                                                    <td>\n' +
                                 '                                                                        <div class="progress" style="height: 8px;">\n' +
-                                '                                                                            <div class="progress-bar progress-bar-striped bg-'+classStatus+'" role="progressbar" aria-valuenow="25" aria-valuemin="20" aria-valuemax="100" style="width:'+response[i].percentage+'%"></div>\n' +
+                                '                                                                            <div class="progress-bar progress-bar-striped bg-' + classStatus + '" role="progressbar" aria-valuenow="25" aria-valuemin="20" aria-valuemax="100" style="width:' + response[i].percentage + '%"></div>\n' +
                                 '                                                                        </div>\n' +
-                                '                                                                        <ngb-progressbar type="'+classStatus+'" [value]="'+response[i].percentage+'" [striped]="true" class="progress-bar-md bg-gradient-x-'+classStatus+'"></ngb-progressbar>\n' +
+                                '                                                                        <ngb-progressbar type="' + classStatus + '" [value]="' + response[i].percentage + '" [striped]="true" class="progress-bar-md bg-gradient-x-' + classStatus + '"></ngb-progressbar>\n' +
                                 '                                                                    </td>\n' +
                                 '                                                                </tr>';
                         }
 
-                    }else{
-                        html+="<tr><p>No Sale found</p></tr>";
+                    } else {
+                        html += "<tr><p>No Sale found</p></tr>";
                     }
                     $('.SPOProgress').html(html);
 
@@ -84,7 +84,7 @@ $(document).ready(function(){
             timeout: AllConstant.timeout
         });
     });
-    $('#btnShowUCC').click(function(){
+    $('#btnShowUCC').click(function () {
         $('.ucc_table').html("");
         $('.shopCount').html("0");
         createUCCTable(token);
@@ -95,24 +95,24 @@ $(document).ready(function(){
         $.ajax({
             type: "GET",
             url: url,
-            data: {token:token},
+            data: {token: token},
             contentType: "application/json",
             dataType: "text",
             success: function (data) {
                 var response = JSON.parse(data);
 
-                if(response.status==="200"){
+                if (response.status === "200") {
                     $('#person_id').html(response.empID);
                     $('#person_name').html(response.name);
                     $('#person_team').html(response.team);
                     $('#person_region').html(response.region);
-                    setStrategyStatus('productivity_status',response.productivityStatus);
-                    setStrategyStatus('ucc_status',response.uccStatus);
-                    setStrategyStatus('strategic_contribution_status',response.strategicStatus);
+                    setStrategyStatus('productivity_status', response.productivityStatus);
+                    setStrategyStatus('ucc_status', response.uccStatus);
+                    setStrategyStatus('strategic_contribution_status', response.strategicStatus);
 
                     $(".strategy_div").removeClass("toggle_div");
 
-                }else{
+                } else {
                     alert("Something went wrong in populating dropdown!");
                 }
             },
@@ -123,43 +123,43 @@ $(document).ready(function(){
         });
     });
 
-    $(document).on("click", ".person", function(){
+    $(document).on("click", ".person", function () {
         var positioncode = $(this).attr("data-positioncode");
         var url = AllConstant.baseURL + "/getSPOProgressProductWise";
 
         $.ajax({
             type: "GET",
             url: url,
-            data: {token:token, position_code:positioncode},
+            data: {token: token, position_code: positioncode},
             contentType: "application/json",
             dataType: "text",
             success: function (data) {
                 var response = JSON.parse(data);
-                var html="";
+                var html = "";
                 var name = "";
-                if(response.length>0){
+                if (response.length > 0) {
 
-                    for(var i=0 ; i<response.length ; i++){
-                        if(response[i].personName!==null && response[i].personName!=='undefined' && response[i].personName!==''){
-                            name = response[i].personName ;
+                    for (var i = 0; i < response.length; i++) {
+                        if (response[i].personName !== null && response[i].personName !== 'undefined' && response[i].personName !== '') {
+                            name = response[i].personName;
                         }
-                        html += '<tr data-positionCode="'+response[i].position_code+'" >\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].name+'</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].mtdTarget+'</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].mtdAch+'</td>\n' +
-                            '                                                                    <td class="text-truncate">'+response[i].mtdPerc+'%</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].ytdTarget+'</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].ytdAch+'</td>\n' +
-                            '                                                                    <td class="text-truncate">'+response[i].ytdPerc+'%</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].FYTarget+'</td>\n' +
-                            '                                                                    <td class="text-truncate">'+response[i].balance+'</td>\n' +
-                            '                                                                    <td class="text-truncate"> '+response[i].CMA+'</td>\n' +
-                            '                                                                    <td class="text-truncate">'+response[i].RMA+'</td>\n' +
+                        html += '<tr data-positionCode="' + response[i].position_code + '" >\n' +
+                            '                                                                    <td class="text-truncate"> ' + response[i].name + '</td>\n' +
+                            '                                                                    <td class="text-truncate"> ' + response[i].mtdTarget + '</td>\n' +
+                            '                                                                    <td class="text-truncate"> ' + response[i].mtdAch + '</td>\n' +
+                            '                                                                    <td class="text-truncate">' + response[i].mtdPerc + '%</td>\n' +
+                            '                                                                    <td class="text-truncate"> ' + response[i].ytdTarget + '</td>\n' +
+                            '                                                                    <td class="text-truncate"> ' + response[i].ytdAch + '</td>\n' +
+                            '                                                                    <td class="text-truncate">' + response[i].ytdPerc + '%</td>\n' +
+                            '                                                                    <td class="text-truncate"> ' + response[i].FYTarget + '</td>\n' +
+                            '                                                                    <td class="text-truncate">' + response[i].balance + '</td>\n' +
+                            '                                                                    <td class="text-truncate"> ' + response[i].CMA + '</td>\n' +
+                            '                                                                    <td class="text-truncate">' + response[i].RMA + '</td>\n' +
                             '                                                                </tr>';
                     }
 
-                }else{
-                    html+="<tr><p>No Sale found</p></tr>";
+                } else {
+                    html += "<tr><p>No Sale found</p></tr>";
                 }
                 $('.modal').modal('show');
                 $('.SPOProgressSKUWise').html(html);
@@ -173,7 +173,40 @@ $(document).ready(function(){
             timeout: AllConstant.timeout
         });
     });
+    $(document).on("click", ".subordinate", function () {
+        var positioncode = $(this).attr("data-positioncode");
+        var id = $(this).attr("data-empId");
+        var pass = $(this).attr("data-password");
+        var url = AllConstant.baseURL + "/loginServerAttempt";
 
+
+        if (id !== "" && pass !== "") {
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: {username: id, password: pass},
+                contentType: "application/json",
+                dataType: "text",
+                success: function (data) {
+                    const loginResponse = JSON.parse(data);
+                    if (loginResponse.statusCode !== undefined) {
+                        if (loginResponse.statusCode === "200") {
+                            setCookie('token', loginResponse.token, 365);
+                            setCookie('positionCode', loginResponse.positionCode, 365);
+                            window.open('menu.html', '_blank');
+                        }
+                    }
+                },
+                error: function (data) {
+                    swal("Error!", "Something went wrong!", "error").done();
+                }
+            });
+
+        //    self.location = "menu.html";
+        }
+
+
+    });
 });
 function setStrategyStatus(selector, status){
     if(status === 1){
@@ -184,7 +217,7 @@ function setStrategyStatus(selector, status){
         $('#'+selector).html('Average');
         $('#'+selector).addClass('warningStatus');
         $('#'+selector).addClass('btn-outline-warning');
-    }else if(status===3.){
+    }else if(status===3){
         $('#'+selector).html('Low Performance');
         $('#'+selector).addClass('errorStatus');
         $('#'+selector).addClass('btn-outline-danger');
@@ -302,9 +335,6 @@ function setSubOrdinatePerformanceTable(token){
             if(response.length>0){
 
                 for(var i=0 ; i<response.length ; i++){
-                    if(response[i].FYTarget == "0" && response[i].ytdAch == "0"){
-                        continue;
-                    }
                     if(response[i].position_code.includes("ASM")){
                         html +='<tr data-positionCode="'+response[i].position_code+'" class="person font-weight-bold">\n';
                     }else{
@@ -513,13 +543,11 @@ function setUCCTable(token){
             if(response.length>0){
 
                 for(var i=0 ; i<response.length ; i++){
-                    if(response[i].totalCustomers == "0" && response[i].ucc == "0"){
-                        continue;
-                    }
+
                     if(response[i].position_code.includes("ASM")){
-                        html +='<tr data-positionCode="'+response[i].position_code+'" class="person font-weight-bold">\n';
+                        html +='<tr data-empId="'+response[i].empId+'" data-password="'+response[i].password+'" data-positionCode="'+response[i].position_code+'" class="subordinate font-weight-bold">\n';
                     }else{
-                        html += '<tr data-positionCode="'+response[i].position_code+'" class="person">\n';
+                        html += '<tr data-empId="'+response[i].empId+'" data-password="'+response[i].password+'" data-positionCode="'+response[i].position_code+'" class="subordinate">\n';
                     }
 
 

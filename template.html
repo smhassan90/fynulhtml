@@ -68,7 +68,7 @@
                             </li>
                             <li><a id="mnpchannelmapping_menu" class="mappingtable menu-item"
                                    data-tablename="MNPChannelMapping" data-primarykeycolumn="CLASS_CODE"
-                                   data-dropdown1="CHANNEL" data-joiningtablename1 = "Channel" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                                   data-dropdown1="CHANNEL" data-joiningtablename1 = "Channel" data-joiningcolumnname1="NAME" data-joiningcolumnvalue1 = "NAME"
                             >MNP Channel Master</a>
                             </li>
                             <li><a id="PRDGroupOn_menu" data-tablename="PRDGroupOn" data-primarykeycolumn="PRD_NAME" class="menu-item">GroupOn Master</a>
@@ -128,8 +128,8 @@
                                    data-dropdown1="POSITION_CODE" data-joiningtablename1 = "EmployeeIDPositionIDMapping" data-joiningcolumnname1="POSITION_ID" data-joiningcolumnvalue1 = "EMPLOYEE_ID"
                                    class="menu-item">Employee PJP Mapping</a>
                             </li>
-                            <li><a id="employeepositionteam_menu" data-tablename="EmployeePositionTeam" class="mappingtable menu-item" data-primarykeycolumn="TEAM_ID"
-                                   data-dropdown1="TEAM_ID" data-joiningtablename1 = "TeamDepartment" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "NAME"
+                            <li><a id="employeepositionteam_menu" data-tablename="EmployeePositionTeam" class="mappingtable menu-item" data-primarykeycolumn="POSITION_ID"
+                                   data-dropdown1="TEAM_ID" data-joiningtablename1 = "TeamDepartment" data-joiningcolumnname1="ID" data-joiningcolumnvalue1 = "ALIAS"
                                    data-dropdown2="POSITION_ID" data-joiningtablename2 = "EmployeeIDPositionIDMapping" data-joiningcolumnname2="POSITION_ID" data-joiningcolumnvalue2 = "EMPLOYEE_ID"
                             >Employee Team Mapping</a>
                             </li>
@@ -1842,7 +1842,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-12">
                                                         <div class="block-button">
-                                                            <a id="btnAddEmployeeTeamMapping" data-tablename="EmployeePositionTeam" data-columns="TEAM_ID*POSITION_ID" data-primarykeycolumn="TEAM_ID" class="btnAddUpdate btn btn-success btn-lg btn-block">Add</a>
+                                                            <a id="btnAddEmployeeTeamMapping" data-tablename="EmployeePositionTeam" data-columns="TEAM_ID*POSITION_ID" data-primarykeycolumn="POSITION_ID" class="btnAddUpdate btn btn-success btn-lg btn-block">Add</a>
                                                         </div>
                                                     </div>
                                                 </div>
